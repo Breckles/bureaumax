@@ -1,0 +1,162 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  --color-text-primary: black;
+  --color-text-anchor-hover: red;
+
+  min-height: 100vh;
+
+  font-size: 10px;
+}
+
+body {
+  height: 100%;
+
+  font-size: 16px
+}
+
+#siteBackdrop.visible {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50000;
+  width: 100%;
+  height: 100%;
+
+  background-color: #333333;
+  opacity: 0.7;
+}
+
+.drawer {
+  position: fixed;
+  z-index: 50001;
+  top: 0;
+  width: 75%;
+  height: 100%;
+
+  background-color: white;
+}
+
+.drawer ul {
+  list-style-type: none;
+}
+
+.drawer.left {
+  left: -75%;
+  transition: left 100ms ease-in-out;
+}
+
+.drawer.left.open {
+  left: 0;
+}
+
+.drawer.right {
+  right: -75%;
+  transition: right 100ms ease-in-out;
+}
+
+.drawer.right.open {
+  right: 0;
+}
+
+.iconButton {
+  width: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+/*************************************** Header ***************************************/
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 20px;
+}
+
+header nav ul {
+  list-style-type: none;
+}
+
+/* Site Nav */
+
+nav#siteNav {
+  flex: 1;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav#siteNav #navLogo {
+  margin-right: auto;
+}
+
+nav#siteNav #navLogo img {
+  display: block;
+  width: 30px;
+}
+
+/* Section Nav */
+
+button#menuIcon {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+}
+
+nav#sectionNav {
+  /* position: fixed;
+  top: 0;
+  left: -75%;
+  z-index: 50001; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+  /* width: 75%;
+  height: 100%; */
+  padding: 20px 0;
+
+  /* transition: left 100ms ease-in-out; */
+}
+
+/* nav#sectionNav.open {
+  left: 0;
+} */
+
+nav#sectionNav #closeSectionNavButton {
+  width: 15px;
+  margin: 0 25px;
+}
+
+nav#sectionNav a {
+  display: block;
+  padding: 30px 25px;
+}
+
+/* Links */
+
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header a:hover {
+  color: var(--color-text-anchor-hover);
+}
+
+header a:visited {
+  color: inherit;
+}
+
+
+/****************** Sidebar **********************/
