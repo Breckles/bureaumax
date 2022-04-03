@@ -11,15 +11,91 @@ html {
   --color-text-anchor-hover: red;
 
   min-height: 100vh;
-
+  width: 100vw;
   font-size: 10px;
 }
 
 body {
+  width: 100%;
   height: 100%;
 
   font-size: 16px
 }
+
+/********************************* General **********************************/
+
+button {
+  width: fit-content;
+  padding: 5px;
+  border: 2px solid var(--color-text-primary);
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+button:hover {
+  background-color: var(--color-text-anchor-hover);
+}
+
+button:active {
+  background-color: transparent;
+}
+
+.iconButton {
+  width: 20px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+/******************************** Forms *************************************/
+form li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  padding: 10px 0;
+}
+
+form input {
+  width: 95%;
+  padding: 5px;
+
+  border: 3px solid var(--color-text-primary);
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+form fieldset {
+  border: 3px solid var(--color-text-primary);
+  border-radius: 6px;
+}
+
+form fieldset legend {
+  max-width: 85%;
+  margin: 0 10% 0 5%;
+  padding: 5px;
+}
+
+form .radioGroup {
+  padding: 5px 5%;
+}
+
+form .radioGroup li {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: unset;
+  padding: 5px 0;
+}
+
+form .radioGroup input {
+  width: unset;
+}
+
+
+
+/********************************* Drawers **********************************/
 
 #siteBackdrop.visible {
   position: fixed;
@@ -33,10 +109,16 @@ body {
   opacity: 0.7;
 }
 
+.closeDrawerButton {
+  width: 15px;
+}
+
 .drawer {
   position: fixed;
   z-index: 50001;
   top: 0;
+  display: flex;
+  flex-direction: column;
   width: 75%;
   height: 100%;
 
@@ -65,10 +147,75 @@ body {
   right: 0;
 }
 
-.iconButton {
-  width: 20px;
-  background-color: transparent;
+/* Help Drawer */
+
+#helpDrawer {
+  padding: 20px;
+  gap: 20px;
+}
+
+#helpDrawer .closeDrawerButton {
+  align-self: flex-end;
+}
+
+#helpDrawer h2 {
+  border-bottom: 2px solid var(--color-text-primary);
+}
+
+/* Auth Drawer */
+
+#authDrawer {
+  padding: 20px;
+}
+
+#authDrawer .closeDrawerButton {
+  align-self: flex-end;
+}
+
+#authDrawer h2 {
+  border-bottom: 2px solid var(--color-text-primary);
+}
+
+#authDrawer form {
+  display: none;
+}
+
+#authDrawer form.active {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#authDrawer .switchAuthModeButton {
   border: none;
+  color: pink;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#authDrawer .switchAuthModeButton:hover {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+
+/* Section Drawer */
+
+#sectionDrawer #closeDrawerButton {
+  width: 15px;
+  margin: 25px;
+}
+
+#sectionDrawer #sectionNavMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+#sectionDrawer #sectionNavMenu a {
+  display: block;
+  padding: 30px 25px;
 }
 
 /*************************************** Header ***************************************/
@@ -85,6 +232,12 @@ header nav ul {
   list-style-type: none;
 }
 
+@media screen and (min-width: 700px) {
+  header {
+    flex-direction: column-reverse;
+  }
+}
+
 /* Site Nav */
 
 nav#siteNav {
@@ -95,16 +248,47 @@ nav#siteNav {
   align-items: center;
 }
 
-nav#siteNav #navLogo {
+nav#siteNav a#navLogoSmall {
   margin-right: auto;
 }
 
-nav#siteNav #navLogo img {
+nav#siteNav a#navLogoSmall img {
   display: block;
   width: 30px;
 }
 
+nav#siteNav a#navLogoLarge {
+  display: none;
+}
+
+@media screen and (min-width: 700px) {
+  nav#siteNav {
+    width: 100%;
+  }
+
+  nav#siteNav a#navLogoSmall {
+    display: none;
+  }
+
+  nav#siteNav a#navLogoLarge {
+    display: unset;
+    max-width: 200px;
+    margin-right: auto;
+    padding: 5px 20px 20px;
+
+    background-color: black;
+  }
+
+  nav#siteNav #navLogoLarge img {
+    width: 100%;
+  }
+}
+
 /* Section Nav */
+
+#largeScreenSectionNav {
+  display: none;
+}
 
 button#menuIcon {
   width: 40px;
@@ -112,35 +296,24 @@ button#menuIcon {
   padding: 10px;
 }
 
-nav#sectionNav {
-  /* position: fixed;
-  top: 0;
-  left: -75%;
-  z-index: 50001; */
+@media screen and (min-width: 700px) {
+  #sectionNavContainer {
+    width: 100%;
+  }
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 20px;
-  /* width: 75%;
-  height: 100%; */
-  padding: 20px 0;
+  button#menuIcon {
+    display: none;
+  }
 
-  /* transition: left 100ms ease-in-out; */
-}
+  #largeScreenSectionNav {
+    display: unset;
+  }
 
-/* nav#sectionNav.open {
-  left: 0;
-} */
-
-nav#sectionNav #closeSectionNavButton {
-  width: 15px;
-  margin: 0 25px;
-}
-
-nav#sectionNav a {
-  display: block;
-  padding: 30px 25px;
+  #largeScreenSectionNav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
 }
 
 /* Links */
@@ -150,7 +323,8 @@ header a {
   color: inherit;
 }
 
-header a:hover {
+header a:hover,
+#authDrawer .switchAuthModeButton:hover {
   color: var(--color-text-anchor-hover);
 }
 
@@ -159,4 +333,53 @@ header a:visited {
 }
 
 
-/****************** Sidebar **********************/
+/****************** Product List **********************/
+ul.productList {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+}
+
+ul.productList li {
+  flex: 1 1 40%;
+}
+
+ul.productList li a {
+  text-decoration: none;
+}
+
+ul.productList li a:visited {
+  color: var(--color-text-primary);
+}
+
+ul.productList .productCard {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+ul.productList .productCard h3 {
+  width: 100%;
+  max-height: 2.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+ul.productList .productCard img {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 700px) {
+  ul.productList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    gap: 15px;
+  }
+
+  ul.productList li {
+    flex: 0 1 20%;
+  }
+}
