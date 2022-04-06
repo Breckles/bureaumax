@@ -1,0 +1,69 @@
+/****************** Product List **********************/
+ul.productList {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(35%, 1fr));
+  gap: 15px;
+  width: 100%;
+}
+
+ul.productList .productListItem {
+  /* flex: 1 1 40%; */
+}
+
+ul.productList li a {
+  text-decoration: none;
+}
+
+ul.productList li a:visited {
+  color: var(--color-text-primary);
+}
+
+@media screen and (min-width: 700px) {
+  ul.productList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    grid-template-rows: repeat(auto-fill, 1fr);
+    gap: 15px;
+  }
+
+  ul.productList .productListItem {}
+}
+
+/****************** Product Card **********************/
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 2px;
+  width: 100%;
+  height: 100%;
+
+  box-shadow:
+    2px 2px 5px var(--color-product-card-box-shadow),
+    -2px 2px 5px var(--color-product-card-box-shadow);
+}
+
+.productCard img {
+  max-width: 100%;
+}
+
+.productCardContent {
+  padding: 5px;
+}
+
+.productCard h3 {
+  /* Display ellipsis past 2 lines. As of writing (2022-04-06), this is compatible in all browsers except IE */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.productCardDescription {}
+
+.productCardPrice {}
+
+@media screen and (min-width: 700px) {}

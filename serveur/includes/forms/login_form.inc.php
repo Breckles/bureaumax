@@ -1,5 +1,5 @@
 <form id="loginForm" class="active" action="serveur/scripts/connexion.php" method="POST">
-  <h2>Connectez-Vous</h2>
+  <h2 id="authDrawerTitle">Connectez-Vous</h2>
   <ul>
     <li>
       <label for="loginEmailInput">Couriel</label>

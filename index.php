@@ -8,30 +8,30 @@
   <title>BureauMax - Accueil</title>
   <link rel="icon" type="image/x-icon" href="./client/public/icones/logo_small.png">
   <link rel="stylesheet" href="./client/public/css/main.css">
+  <link rel="stylesheet" href="./client/public/css/home_page.css">
+  <link rel="stylesheet" href="./client/public/css/ui.css">
   <script src="./client/public/js/main.js" defer></script>
 </head>
 
-<body>
+<body id="homePage">
   <div id="siteBackdrop" onclick="closeSideDrawer()"></div>
-  <!-- <div id="siteBackdrop" class="visible" onclick="closeSideDrawer()"></div> -->
 
   <?php
   session_start();
   define('ABSPATH', __DIR__);
   $DOMAINPATH = 'http://localhost:8080/sym_bureaumax_partie_1';
-  include('serveur/includes/header/header.inc.php');
   include('serveur/includes/drawers/section_drawer.inc.php');
   include('serveur/includes/drawers/auth_drawer.inc.php');
   include('serveur/includes/drawers/help_drawer.inc.php');
 
-  // if (!isset($_SESSION['usager'])) {
-  //   echo 'Vous n\'etes pas connecter';
-  // } else if ($_SESSION['usager'] == 'M') {
-  //   echo 'Bienvenu, vous etes un membre enregistrer!';
-  // } else if ($_SESSION['usager'] == 'A') {
-  //   echo 'Bienvenu, vous etes un administrateur!';
-  // }
+  include('serveur/includes/header/header.inc.php');
+  ?>
 
+  <div class="bannerImageContainer">
+    <img class="bannerImage" src="http://localhost:8080/sym_bureaumax_partie_1/client/public/images/office_highlighters_large.jpg" alt="Un bureau avec des note d'entretien et des surligneurs dessus.">
+  </div>
+
+  <?php
   $products = [
     (object) [
       'name' => 'Brother - Cartouche de toner noir TN221BK rendement standard',
@@ -76,11 +76,14 @@
       'price' => 26.99
     ]
   ];
-
   echo '<h2>Produits Vedettes</h2>';
-
-  include(ABSPATH . '/serveur/includes/ui/product_list.inc.php')
   ?>
+
+  <div id="homePageProductList">
+    <?php
+    include(ABSPATH . '/serveur/includes/ui/product_list.inc.php')
+    ?>
+  </div>
 </body>
 
 </html>

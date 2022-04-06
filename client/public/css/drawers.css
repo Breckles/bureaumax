@@ -1,0 +1,132 @@
+/********************************* Drawers **********************************/
+#siteBackdrop {
+  pointer-events: none;
+}
+
+#siteBackdrop.visible {
+  pointer-events: unset;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50000;
+  width: 100%;
+  height: 100%;
+
+  background-color: #333333;
+  opacity: 0.7;
+}
+
+.closeDrawerButton {
+  width: 15px;
+}
+
+.drawer {
+  position: fixed;
+  z-index: 50001;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  height: 100%;
+
+  background-color: var(--color-bg-primary);
+}
+
+.drawer ul {
+  list-style-type: none;
+}
+
+.drawer.left {
+  left: -75%;
+  transition: left 100ms ease-in-out;
+}
+
+.drawer.left.open {
+  left: 0;
+}
+
+.drawer.right {
+  right: -75%;
+  transition: right 100ms ease-in-out;
+}
+
+.drawer.right.open {
+  right: 0;
+}
+
+/* Help Drawer */
+
+#helpDrawer {
+  padding: 20px;
+  gap: 20px;
+}
+
+#helpDrawer .closeDrawerButton {
+  align-self: flex-end;
+}
+
+#helpDrawer h2 {
+  border-bottom: 2px solid var(--color-text-primary);
+}
+
+/* Auth Drawer */
+
+#authDrawer {
+  padding: 20px;
+}
+
+#authDrawer .closeDrawerButton {
+  align-self: flex-end;
+}
+
+#authDrawer h2 {
+  border-bottom: 2px solid var(--color-text-primary);
+}
+
+#authDrawer form {
+  display: none;
+}
+
+#authDrawer form.active {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#authDrawer .switchAuthModeButton {
+  border: none;
+  color: pink;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#authDrawer .switchAuthModeButton:hover {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+
+/* Section Drawer */
+
+#sectionDrawer {
+  font-family: var(--font-family-secondary);
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+#sectionDrawer #closeDrawerButton {
+  width: 15px;
+  margin: 25px;
+}
+
+#sectionDrawer #sectionNavMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+#sectionDrawer #sectionNavMenu a {
+  display: block;
+  padding: 30px 25px;
+}

@@ -1,5 +1,5 @@
 <form id="registrationForm" action="serveur/scripts/enregistrerMembres.php" method="POST">
-  <h2>Enregistrez-Vous</h2>
+  <h2 id="authDrawerTitle">Enregistrez-Vous</h2>
   <ul>
     <li>
       <label for="firstNameInput">Prenom *</label>

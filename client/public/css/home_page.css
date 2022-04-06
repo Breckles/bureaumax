@@ -1,0 +1,21 @@
+#homePage .bannerImageContainer {
+  width: 100%;
+}
+
+#homePage .bannerImage {
+  width: 100%;
+  max-height: 65vh;
+  object-fit: cover;
+}
+
+#homePage>h2 {
+  padding: 10px;
+  text-decoration: underline;
+  text-decoration-color: var(--highlighter-pink);
+  text-decoration-thickness: 2px;
+}
+
+#homePage #homePageProductList {
+  width: 100%;
+  padding: 10px;
+}
