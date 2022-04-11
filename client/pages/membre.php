@@ -24,7 +24,9 @@
 
   <div id="siteBackdrop" onclick="closeSideDrawer()"></div>
 
-  <h1>Bonjour, Membre!</h1>
+  <h1>Profile</h1>
+
+
 
 </body>
 

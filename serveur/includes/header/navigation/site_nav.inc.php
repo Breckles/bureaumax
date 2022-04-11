@@ -18,6 +18,7 @@
     </button>";
   }
 
+
   echo
   "<button class='iconButton' type='button' onclick='openSideDrawer(`authDrawer`)' aria-label='Ouvrir le menu de connexion'>
     <img src=$DOMAINPATH/client/public/icones/user_icon.svg />

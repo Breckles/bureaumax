@@ -38,21 +38,24 @@
       'imagePath' => "$DOMAINPATH" . '/client/public/images/toner.webp',
       'imageAltText' => 'Une explosion de couleur... dans ta face.',
       'cardDescription' => 'Une explosion de couleur... dans ta face.',
-      'price' => 123.99
+      'price' => 123.99,
+      'discountPrice' => 109.99
     ],
     (object) [
       'name' => 'Apple AirPods - 3e génération',
       'imagePath' => "$DOMAINPATH" . '/client/public/images/pods.webp',
       'imageAltText' => '2 petits extra-terrestres dans une boite chic.',
       'cardDescription' => '2 petits extra-terrestres dans une boite chic.',
-      'price' => 239.99
+      'price' => 239.99,
+      'discountPrice' => 199.99
     ],
     (object) [
       'name' => 'BIC - Stylos à bille Round Stic ronds, pointe moyenne, 1,0 mm, bleu, paq./60',
       'imagePath' => "$DOMAINPATH" . '/client/public/images/bics.webp',
       'imageAltText' => 'Extra valeur. C\'est ecrit sur la boite.',
       'cardDescription' => 'Extra valeur. C\'est ecrit sur la boite.',
-      'price' => 7.49
+      'price' => 7.49,
+      'discountPrice' => 3.49
     ],
     (object) [
       'name' => 'Omega II - Casque dur, ajustement à coulisse latérale, homologué CSA Type 1, classe E, ANSI Type I, jaune',

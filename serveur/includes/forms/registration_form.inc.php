@@ -3,27 +3,27 @@
   <ul>
     <li>
       <label for="firstNameInput">Prenom *</label>
-      <input id="firstNameInput" type="text" name="prenom" required>
+      <input id="firstNameInput" type="text" name="prenom" placeholder="Prenom" required>
     </li>
     <li>
       <label for="lastNameInput">Nom *</label>
-      <input id="lastNameInput" type="text" name="nom" required>
+      <input id="lastNameInput" type="text" name="nom" placeholder="Nom" required>
     </li>
     <li>
       <label for="registerEmailInput">Couriel *</label>
-      <input id="registerEmailInput" type="email" name="courriel" required>
+      <input id="registerEmailInput" type="email" name="courriel" placeholder="Couriel" required>
     </li>
     <li>
       <label for="registerPasswordInput">Mot de passe *</label>
-      <input id="registerPasswordInput" type="password" name="pass" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,10}$" required>
+      <input id="registerPasswordInput" type="password" name="pass" placeholder="Mot de passe" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,10}$" required>
     </li>
     <li>
       <label for="confirmPasswordInput">Confirmer mot de passe *</label>
-      <input id="confirmPasswordInput" type="password" onkeyup="validatePasswordMatch()" required>
+      <input id="confirmPasswordInput" type="password" onkeyup="validatePasswordMatch()" placeholder="Mot de passe" required>
     </li>
     <li>
       <label for="dobInput">Date de naissance (Optionel. Pour usage statistique seulement.)</label>
-      <input id="dobInput" type="date" name="datenaissance">
+      <input id="dobInput" type="date" name="datenaissance" placeholder="ddd">
     </li>
     <li>
       <fieldset>

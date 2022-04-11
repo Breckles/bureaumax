@@ -27,6 +27,7 @@
   display: flex;
   flex-direction: column;
   width: 75%;
+  max-width: 400px;
   height: 100%;
 
   background-color: var(--color-bg-primary);
@@ -52,6 +53,12 @@
 
 .drawer.right.open {
   right: 0;
+}
+
+@media screen and (min-width: 700px) {
+  .drawer {
+    width: 25%;
+  }
 }
 
 /* Help Drawer */
@@ -95,7 +102,7 @@
 
 #authDrawer .switchAuthModeButton {
   border: none;
-  color: pink;
+  color: var(--color-highlight-primary);
   padding-left: 0;
   padding-right: 0;
 }

@@ -12,9 +12,25 @@ header nav ul {
   list-style-type: none;
 }
 
+header #siteNavContainer {
+  width: 100%;
+}
+
+
 @media screen and (min-width: 700px) {
   header {
     flex-direction: column-reverse;
+    gap: 0;
+    padding-bottom: 0;
+  }
+
+  header #siteNavContainer {
+    /* margin-bottom: 20px; */
+  }
+
+  header #sectionNavContainer {
+    width: 100%;
+    /* padding: 20px; */
   }
 }
 
@@ -43,6 +59,7 @@ nav#siteNav a#navLogoLarge {
 
 @media screen and (min-width: 700px) {
   nav#siteNav {
+    gap: 25px;
     width: 100%;
   }
 
@@ -77,21 +94,38 @@ button#menuIcon {
 }
 
 @media screen and (min-width: 700px) {
-  #sectionNavContainer {
-    width: 100%;
-  }
-
   button#menuIcon {
     display: none;
   }
 
   #largeScreenSectionNav {
     display: unset;
+
+    font-family: var(--font-family-secondary);
+    font-weight: 600;
+    font-size: 1.4em;
   }
 
   #largeScreenSectionNav ul {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 60px;
+    margin: 0 20%;
+    padding: 25px 0;
+  }
+
+  #largeScreenSectionNav li {
+    height: 100%;
+  }
+
+  #largeScreenSectionNav li a {
+    display: block;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+  }
+
+  #largeScreenSectionNav li a:hover {
+    border-color: var(--color-highlight-primary);
   }
 }

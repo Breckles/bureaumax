@@ -3,11 +3,11 @@
   <ul>
     <li>
       <label for="loginEmailInput">Couriel</label>
-      <input id="loginEmailInput" type="email" name="courrielc" required>
+      <input id="loginEmailInput" type="email" name="courrielc" placeholder="Couriel" required>
     </li>
     <li>
       <label for="loginPasswordInput">Mot de passe</label>
-      <input id="loginPasswordInput" type="password" name="passc" required>
+      <input id="loginPasswordInput" type="password" name="passc" placeholder="Mot de passe" required>
     </li>
   </ul>
   <div class="formButtons">

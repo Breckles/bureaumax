@@ -1,4 +1,4 @@
-<div id="authDrawer" class="drawer right" role="dialog" aria-modal="true" aria-labelledby="authDrawerTitle">
+<div id="authDrawer" class="drawer right" role="dialog" aria-modal="true">
   <button class="iconButton closeDrawerButton" type="button" onclick="closeSideDrawer()" aria-label="Fermez la navigation des sections.">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
       <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
@@ -12,6 +12,7 @@
     include(ABSPATH . '/serveur/includes/forms/registration_form.inc.php');
   } else {
     // echo '<button type="button" onclick="logout()">Deconnexion</button>';
+    echo "<a href=$DOMAINPATH/client/pages/membre.php>Profile</a>";
     echo "<a href=$DOMAINPATH/serveur/scripts/deconnecter.php>Deconnexion</a>";
   }
   ?>

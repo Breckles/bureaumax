@@ -18,8 +18,8 @@ if (!$ligne = $result->fetch_object()) { //Si pas trouvé
 if ($ligne->statut == "A") {
   if ($ligne->role == "M") {
     $_SESSION['usager'] = "M";
-    header('Location: ../../client/pages/membre.php');
-    exit; //Le placer toujours après un header('Location: ....)
+    // header('Location: ../../client/pages/membre.php');
+    // exit; //Le placer toujours après un header('Location: ....)
   } else  if ($ligne->role == "A") {
     $_SESSION['usager'] = "A";
     header('Location: ../../client/pages/admin.php');

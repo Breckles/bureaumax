@@ -10,8 +10,9 @@
 
 #homePage>h2 {
   padding: 10px;
+  margin: 20px 0 10px;
   text-decoration: underline;
-  text-decoration-color: var(--highlighter-pink);
+  text-decoration-color: var(--color-underline);
   text-decoration-thickness: 2px;
 }
 

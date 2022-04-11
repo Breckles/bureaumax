@@ -2,7 +2,8 @@
 ul.productList {
   list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(35%, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  grid-auto-rows: 1fr;
   gap: 15px;
   width: 100%;
 }
@@ -20,12 +21,7 @@ ul.productList li a:visited {
 }
 
 @media screen and (min-width: 700px) {
-  ul.productList {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    grid-template-rows: repeat(auto-fill, 1fr);
-    gap: 15px;
-  }
+  ul.productList {}
 
   ul.productList .productListItem {}
 }
@@ -35,22 +31,25 @@ ul.productList li a:visited {
 .productCard {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 5px;
-  padding: 2px;
   width: 100%;
   height: 100%;
 
-  box-shadow:
-    2px 2px 5px var(--color-product-card-box-shadow),
-    -2px 2px 5px var(--color-product-card-box-shadow);
+  border: 1px solid #F0F0F0;
+  border-radius: 3px;
 }
 
 .productCard img {
   max-width: 100%;
+  border-radius: 3px 3px 0 0;
 }
 
 .productCardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
   padding: 5px;
 }
 
@@ -62,8 +61,38 @@ ul.productList li a:visited {
   overflow: hidden;
 }
 
-.productCardDescription {}
+p.productCardDescription {
+  font-weight: 300;
+}
 
-.productCardPrice {}
+.productCardPriceContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.productCardPriceContainer>* {
+  text-align: center;
+  width: fit-content;
+  padding: 10px;
+  font-size: 1.05em;
+  line-height: 1em;
+
+}
+
+.productCardDiscountPrice {
+  min-width: 80px;
+
+  background-color: var(--color-success);
+
+  mask-image: url('../images/brush.svg');
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+
+.productRegularPrice {
+  text-decoration: line-through;
+  color: #80808075;
+}
 
 @media screen and (min-width: 700px) {}

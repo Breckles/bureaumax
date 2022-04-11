@@ -1,4 +1,4 @@
-<div id="helpDrawer" class="drawer right" role="dialog" aria-modal="true" aria-labelledby="helpDrawerTitle">
+<div id="helpDrawer" class="drawer right" role="dialog" aria-modal="true">
   <button class="iconButton closeDrawerButton" type="button" onclick="closeSideDrawer()" aria-label="Fermez la navigation des sections.">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
       <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
@@ -6,7 +6,7 @@
     </svg>
   </button>
 
-  <h2 id="helpDrawerTitle">Contactez nous!</h2>
+  <h2>Contactez nous!</h2>
   <p>Tel: 514-555-5789</p>
   <p>Couriel: support@bureaumax.ca</p>
 </div>
