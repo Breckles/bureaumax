@@ -14,9 +14,10 @@
 <body>
 
   <?php
-  session_start();
   define('ABSPATH', dirname(__DIR__, 2));
+  require_once(ABSPATH . '/serveur/models/user.class.php');
   $DOMAINPATH = 'http://localhost:8080/sym_bureaumax_partie_1';
+  session_start();
   include(ABSPATH . '/serveur/includes/header/header.inc.php');
   include(ABSPATH . '/serveur/includes/drawers/section_drawer.inc.php');
   include(ABSPATH . '/serveur/includes/drawers/auth_drawer.inc.php');

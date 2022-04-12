@@ -11,7 +11,8 @@
     include(ABSPATH . '/serveur/includes/forms/login_form.inc.php');
     include(ABSPATH . '/serveur/includes/forms/registration_form.inc.php');
   } else {
-    // echo '<button type="button" onclick="logout()">Deconnexion</button>';
+    $user = $_SESSION['usager'];
+    echo "<h2>$user->prenom $user->nom</h2>";
     echo "<a href=$DOMAINPATH/client/pages/membre.php>Profile</a>";
     echo "<a href=$DOMAINPATH/serveur/scripts/deconnecter.php>Deconnexion</a>";
   }

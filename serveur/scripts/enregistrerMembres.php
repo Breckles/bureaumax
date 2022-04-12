@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once("../includes/configbd.inc.php");
+require_once("./dbService.php");
 
 $prenom = $_POST['prenom'];
 $nom = $_POST['nom'];
@@ -23,8 +24,12 @@ $stmt = $connexion->prepare($requete);
 $stmt->bind_param("ss", $courriel, $pass);
 $stmt->execute();
 $tab['msg'] = "Membre bien enregistré";
+
+$user = new User($idm, $prenom, $nom, $courriel, $dob, $gender, 'M');
+$_SESSION['usager'] = $user;
+
 mysqli_close($connexion);
 
-$_SESSION['usager'] = 'M';
+// $_SESSION['usager'] = 'M';
 header("Location: ../../client/pages/membre.php");
 exit;

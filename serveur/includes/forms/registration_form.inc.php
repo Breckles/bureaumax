@@ -21,29 +21,35 @@
       <label for="confirmPasswordInput">Confirmer mot de passe *</label>
       <input id="confirmPasswordInput" type="password" onkeyup="validatePasswordMatch()" placeholder="Mot de passe" required>
     </li>
-    <li>
-      <label for="dobInput">Date de naissance (Optionel. Pour usage statistique seulement.)</label>
-      <input id="dobInput" type="date" name="datenaissance" placeholder="ddd">
+
+
+    <li class="optionalInputs">
+      <h3>Infos optionelles. Pour usage statistique seulement.</h3>
+      <div>
+        <label for="dobInput">Date de naissance</label>
+        <input id="dobInput" type="date" name="datenaissance" placeholder="ddd">
+      </div>
+      <div>
+        <fieldset>
+          <legend>Sexe</legend>
+          <ul class="radioGroup">
+            <li>
+              <label for="maleRadioInput">Male</label>
+              <input id="maleRadioInput" type="radio" name="sexe" value="M">
+            </li>
+            <li>
+              <label for="femaleRadioInput">Femelle</label>
+              <input id="femaleRadioInput" type="radio" name="sexe" value="F">
+            </li>
+            <li>
+              <label for="noAnswerInput">Prefere ne pas repondre</label>
+              <input id="noAnswerInput" type="radio" name="sexe" value="NA">
+            </li>
+          </ul>
+        </fieldset>
+      </div>
     </li>
-    <li>
-      <fieldset>
-        <legend>Sexe (Optionel. Pour usage statistique seulement.)</legend>
-        <ul class="radioGroup">
-          <li>
-            <label for="maleRadioInput">Male</label>
-            <input id="maleRadioInput" type="radio" name="sexe" value="M">
-          </li>
-          <li>
-            <label for="femaleRadioInput">Femelle</label>
-            <input id="femaleRadioInput" type="radio" name="sexe" value="F">
-          </li>
-          <li>
-            <label for="noAnswerInput">Prefere ne pas repondre</label>
-            <input id="noAnswerInput" type="radio" name="sexe" value="NA">
-          </li>
-        </ul>
-      </fieldset>
-    </li>
+
   </ul>
   <div class="formButtons">
     <button type="submit">Enregistrer</button>

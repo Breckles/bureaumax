@@ -60,3 +60,11 @@ form .radioGroup li {
 form .radioGroup input {
   width: unset;
 }
+
+/* Registration Form */
+form#registrationForm li.optionalInputs {}
+
+form#registrationForm li.optionalInputs h3 {
+  margin: 15px 0 10px;
+  font-size: 1em;
+}

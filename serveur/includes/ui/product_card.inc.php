@@ -1,10 +1,10 @@
 <div class="productCard">
   <?php
   echo
-  "<img src='$product->imagePath' alt='$product->imageAltText'>
+  "<img src='$DOMAINPATH/client/public/images/$product->image' alt='$product->imageAltText'>
     <div class='productCardContent'>
       <h3>$product->name</h3>
-      <p class='productCardDescription'>$product->cardDescription</p>
+      <p class='productCardDescription'>$product->description</p>
       <div class='productCardPriceContainer'>";
 
   if (isset($product->discountPrice)) {

@@ -1,6 +1,7 @@
 <nav id="sectionNavMenu" aria-label="Navigation des Sections">
   <?php
-  if (isset($_SESSION['usager']) && $_SESSION['usager'] == 'A') {
+
+  if (isset($_SESSION['usager']) && $_SESSION['usager']->role == 'A') {
     // Admin sections
     echo
     '<ul>
