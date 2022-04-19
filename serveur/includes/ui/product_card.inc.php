@@ -1,5 +1,7 @@
 <div class="productCard">
   <?php
+  $productString = json_encode($product);
+  echo "<button type='button' onclick='addToCartHandler($productString)'>add product</button>";
   echo
   "<img src='$DOMAINPATH/client/public/images/$product->image' alt='$product->imageAltText'>
     <div class='productCardContent'>
@@ -9,11 +11,11 @@
 
   if (isset($product->discountPrice)) {
     echo
-    "<div class='productCardDiscountPrice'>$$product->discountPrice</div>  
-        <div class='productRegularPrice'>$$product->price</div>
+    "<div class='productCardDiscountPrice'>$product->discountPrice$</div>  
+        <div class='productRegularPrice'>$product->price$</div>
         ";
   } else {
-    echo "<div class='productCardPrice'>$$product->price</div>";
+    echo "<div class='productCardPrice'>$product->price$</div>";
   }
 
   echo

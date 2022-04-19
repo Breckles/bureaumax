@@ -27,6 +27,7 @@ form input:invalid {
 
 form input[type=date] {
   border-color: var(--color-text-primary);
+  width: unset;
 }
 
 form input:placeholder-shown {
@@ -46,6 +47,7 @@ form fieldset legend {
 
 form .radioGroup {
   padding: 5px 5%;
+  /* display: flex; */
 }
 
 form .radioGroup li {
@@ -62,9 +64,19 @@ form .radioGroup input {
 }
 
 /* Registration Form */
-form#registrationForm li.optionalInputs {}
+form#registrationForm li.nameInputs {
+  flex-direction: row;
+}
 
-form#registrationForm li.optionalInputs h3 {
+form#registrationForm li.nameInputs>* {
+  flex: 1;
+}
+
+form#registrationForm li.optionalInfo h3 {
   margin: 15px 0 10px;
   font-size: 1em;
+}
+
+form#registrationForm .optionalInputs {
+  /* display: flex; */
 }

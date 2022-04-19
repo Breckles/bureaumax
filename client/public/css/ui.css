@@ -1,5 +1,5 @@
 /****************** Product List **********************/
-ul.productList {
+ul#productList {
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -8,22 +8,22 @@ ul.productList {
   width: 100%;
 }
 
-ul.productList .productListItem {
+ul#productList .productListItem {
   /* flex: 1 1 40%; */
 }
 
-ul.productList li a {
+ul#productList li a {
   text-decoration: none;
 }
 
-ul.productList li a:visited {
+ul#productList li a:visited {
   color: var(--color-text-primary);
 }
 
 @media screen and (min-width: 700px) {
-  ul.productList {}
+  ul#productList {}
 
-  ul.productList .productListItem {}
+  ul#productList .productListItem {}
 }
 
 /****************** Product Card **********************/

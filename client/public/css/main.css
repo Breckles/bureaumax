@@ -22,6 +22,10 @@ html {
 
   --pinkish-white: #FAF8FA;
 
+  /* A slightly pinker white for the background */
+  --color-bg-primary: var(--pinkish-white);
+  --color-bg-product-card: beige;
+
   --color-text-primary: black;
   --color-underline: var(--highlighter-pink);
 
@@ -35,9 +39,6 @@ html {
   --color-link-hover: var(--highlighter-pink);
   --color-link-visited: var(--highlighter-green);
 
-  /* A slightly pinker white for the background */
-  --color-bg-primary: var(--pinkish-white);
-  --color-bg-product-card: beige;
 
   --font-family-primary: 'Roboto', sans-serif;
   --font-family-secondary: 'Mali', cursive;
@@ -92,6 +93,33 @@ button:active {
   padding: 0;
   background-color: transparent;
   border: none;
+}
+
+
+/* Cart Icon */
+button#cartIconButtonWithBadge {
+  position: relative;
+}
+
+button#cartIconButtonWithBadge #cartIconBadge {
+  position: absolute;
+  left: 100%;
+  top: 100%;
+  transform: translateX(-65%) translateY(-60%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  min-width: calc(1em + 2px);
+  height: calc(0.9em + 2px);
+  padding: 0 2px;
+
+  border: 1px solid var(--color-text-primary);
+  border-radius: 0.5em;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-primary);
 }
 
 

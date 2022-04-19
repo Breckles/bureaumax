@@ -26,8 +26,7 @@
   top: 0;
   display: flex;
   flex-direction: column;
-  width: 75%;
-  max-width: 400px;
+  width: clamp(275px, 75%, 400px);
   height: 100%;
 
   background-color: var(--color-bg-primary);
@@ -38,7 +37,7 @@
 }
 
 .drawer.left {
-  left: -75%;
+  left: min(-75%, -275px);
   transition: left 100ms ease-in-out;
 }
 
@@ -47,7 +46,7 @@
 }
 
 .drawer.right {
-  right: -75%;
+  right: min(-75%, -275px);
   transition: right 100ms ease-in-out;
 }
 
@@ -122,7 +121,7 @@
 }
 
 #sectionDrawer #closeDrawerButton {
-  width: 15px;
+  /* width: 15px; */
   margin: 25px;
 }
 

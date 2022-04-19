@@ -1,7 +1,8 @@
-<ul class="productList">
+<ul id="productList">
   <?php
 
-  foreach ($products as &$product) {
+  foreach ($products as $product) {
+    // echo "<button type='button' onclick='addToCart($product)'>add product </button>";
     echo
     '<li class="productListItem">
     <a href="#">';

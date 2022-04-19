@@ -1,13 +1,15 @@
 <form id="registrationForm" action="serveur/scripts/enregistrerMembres.php" method="POST">
   <h2 id="authDrawerTitle">Enregistrez-Vous</h2>
   <ul>
-    <li>
-      <label for="firstNameInput">Prenom *</label>
-      <input id="firstNameInput" type="text" name="prenom" placeholder="Prenom" required>
-    </li>
-    <li>
-      <label for="lastNameInput">Nom *</label>
-      <input id="lastNameInput" type="text" name="nom" placeholder="Nom" required>
+    <li class="nameInputs">
+      <div>
+        <label for="firstNameInput">Prenom *</label>
+        <input id="firstNameInput" type="text" name="prenom" placeholder="Prenom" required>
+      </div>
+      <div>
+        <label for="lastNameInput">Nom *</label>
+        <input id="lastNameInput" type="text" name="nom" placeholder="Nom" required>
+      </div>
     </li>
     <li>
       <label for="registerEmailInput">Couriel *</label>
@@ -23,27 +25,27 @@
     </li>
 
 
-    <li class="optionalInputs">
+    <li class="optionalInfo">
       <h3>Infos optionelles. Pour usage statistique seulement.</h3>
-      <div>
-        <label for="dobInput">Date de naissance</label>
-        <input id="dobInput" type="date" name="datenaissance" placeholder="ddd">
-      </div>
-      <div>
+      <div class="optionalInputs">
+        <div>
+          <label for="dobInput">Date de naissance</label>
+          <input id="dobInput" type="date" name="datenaissance" placeholder="ddd">
+        </div>
         <fieldset>
           <legend>Sexe</legend>
           <ul class="radioGroup">
             <li>
-              <label for="maleRadioInput">Male</label>
               <input id="maleRadioInput" type="radio" name="sexe" value="M">
+              <label for="maleRadioInput">Male</label>
             </li>
             <li>
-              <label for="femaleRadioInput">Femelle</label>
               <input id="femaleRadioInput" type="radio" name="sexe" value="F">
+              <label for="femaleRadioInput">Femelle</label>
             </li>
             <li>
-              <label for="noAnswerInput">Prefere ne pas repondre</label>
               <input id="noAnswerInput" type="radio" name="sexe" value="NA">
+              <label for="noAnswerInput">Prefere ne pas repondre</label>
             </li>
           </ul>
         </fieldset>
