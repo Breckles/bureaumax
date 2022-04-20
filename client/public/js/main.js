@@ -1,5 +1,5 @@
 import Cart from './models/cart.class.js';
-import { getProducts } from './db.js';
+import { getProducts, getUser } from './db.js';
 
 const rootURL = 'http://localhost:8080/sym_bureaumax_partie_1';
 
@@ -8,13 +8,25 @@ let openDialogId = null;
 let displayedAuthFormId = 'loginForm';
 let user = null;
 
-const cart = Cart.getCart();
+let cart = null;
 
 getProducts().then((response) => {
-  console.log(response);
   user = response.user;
   renderProducts(response.products);
 });
+
+getUser().then((response) => {
+  user = response;
+
+  if (response) {
+    user = response;
+    cart = Cart.getCart();
+    cart.updateCartIconBadge();
+  }
+  // user = response;
+});
+
+///////////////// Drawer Interactions
 
 const openDialog = (id) => {
   const dialog = document.getElementById(id);
@@ -68,16 +80,15 @@ const logout = () => {
 };
 window.logout = logout;
 
-// Cart Actions
+//////////////// Cart Actions
 
 const addToCartHandler = (product) => {
-  console.log(product);
   cart.addToCart(product);
   document.getElementById('cartIconBadge').innerHTML = cart.numItems;
 };
 window.addToCartHandler = addToCartHandler;
 
-// Products
+///////////////// Products
 
 const renderProducts = (products) => {
   const listEl = document.getElementById('productList');
@@ -87,9 +98,9 @@ const renderProducts = (products) => {
     <div class='productRegularPrice'>${product.price}$</div>`
       : `<div class='productCardPrice'>${product.price}$</div>`;
 
-    const listItem = `<li class="productListItem">
+    const listItem = `<li id='product_${product.id}' class="productListItem">
     <a href="#">
-    <div class="productCard" id='product_card_${product.id}'>
+    <div class="productCard">
       <img src='${rootURL}/client/public/images/${product.image}' alt='${product.imageAltText}'>
       <div class='productCardContent'>
       <h3>${product.name}</h3>
@@ -115,7 +126,7 @@ const renderProducts = (products) => {
       );
 
       templateEl.content
-        .getElementById(`product_card_${product.id}`)
+        .getElementById(`product_${product.id}`)
         .appendChild(addToCartButton);
     }
 

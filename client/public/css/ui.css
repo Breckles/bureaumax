@@ -9,7 +9,11 @@ ul#productList {
 }
 
 ul#productList .productListItem {
-  /* flex: 1 1 40%; */
+  position: relative;
+}
+
+ul#productList .productListItem button {
+  z-index: 5000;
 }
 
 ul#productList li a {

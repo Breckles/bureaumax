@@ -3,7 +3,11 @@ import Product from './product.class.js';
 export class Cart {
   constructor(cartItems = []) {
     this.cartItems = cartItems;
-    this.numItems = this.cartItems.length;
+    this.numItems = this.cartItems.reduce(
+      (sum, currentCartItem, index) => sum + currentCartItem.amount,
+      0
+    );
+    // this.updateCartIconBadge();
   }
 
   static getCart = () => {
@@ -28,7 +32,7 @@ export class Cart {
         cartItem.product.discountPrice
       );
 
-      items.push(product, cartItem.amount);
+      items.push(new CartItem(product, cartItem.amount));
     }
 
     return new Cart(items);
@@ -40,9 +44,7 @@ export class Cart {
 
   addToCart = (product) => {
     // See if product is already in cart
-    console.log('product: ', product);
     const existingCartItem = this.cartItems.find((cartItem) => {
-      console.log('cartItem: ', cartItem);
       return cartItem.product.id === product.id;
     });
 
@@ -56,6 +58,7 @@ export class Cart {
     this.numItems++;
 
     this.saveCart();
+    this.updateCartIconBadge();
   };
 
   removeFromCart = (product) => {
@@ -80,15 +83,16 @@ export class Cart {
     this.numItems--;
 
     this.saveCart();
+    this.updateCartIconBadge();
   };
 
   saveCart = () => {
     localStorage.setItem('bd_boutique_cart', JSON.stringify(this));
   };
 
-  // updateCartIconBadge = () => {
-  //   document.getElementById('cartIconBadge').innerHTML = this.numItems;
-  // };
+  updateCartIconBadge = () => {
+    document.getElementById('cartIconBadge').innerHTML = this.numItems;
+  };
 }
 
 class CartItem {

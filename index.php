@@ -19,8 +19,8 @@
 
   <?php
   define('ABSPATH', __DIR__);
-  // $DOMAINPATH = 'http://localhost:8080/sym_bureaumax_partie_1';
-  $DOMAINPATH = 'http://192.168.2.16:8080/sym_bureaumax_partie_1';
+  $DOMAINPATH = 'http://localhost:8080/sym_bureaumax_partie_1';
+  // $DOMAINPATH = 'http://192.168.2.16:8080/sym_bureaumax_partie_1';
   require_once(ABSPATH . '/serveur/models/user.class.php');
   require_once(ABSPATH . '/serveur/models/product.class.php');
   require_once(ABSPATH . '/serveur/scripts/products.php');
