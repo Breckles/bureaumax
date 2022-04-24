@@ -1,0 +1,124 @@
+#cartModal {
+  position: absolute;
+  z-index: 50001;
+  top: 10%;
+  left: 50%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: min(96%, 800px);
+  padding: 15px;
+
+  background-color: var(--color-bg-primary);
+  border-radius: 5px;
+  font-size: 0.8em;
+
+  animation: appear 300ms forwards;
+}
+
+#cartModal hr {
+  margin: 10px 3%;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 40%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0%);
+  }
+}
+
+/************************** Cart Modal List *****************************/
+
+#cartModal ul#cartModalList {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+#cartModal ul#cartModalList li {
+  display: grid;
+  grid-template-columns: 10% 45% 15% 12.5% 17.5%;
+  justify-items: left;
+  align-items: center;
+  width: 100%;
+}
+
+#cartModal ul#cartModalList li>* {
+  text-align: center;
+  width: 100%;
+}
+
+#cartModal ul#cartModalList li.cartModalListHeaders>* {
+  text-align: center;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+#cartModal ul#cartModalList li img {
+  width: 100%;
+}
+
+#cartModal ul#cartModalList li .name {
+  text-align: left;
+  padding: 0 5px 0 10px;
+
+  /* Display ellipsis past 2 lines. As of writing (2022-04-06), this is compatible in all browsers except IE */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+#cartModal ul#cartModalList li .amount input {
+  display: block;
+  width: 100%;
+  font-family: var(--font-family-primary);
+}
+
+
+
+/************************ Cart Modal Billing *******************************/
+
+#cartModal #cartModalBilling {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  width: 100%;
+  padding-right: 4%;
+}
+
+#cartModal #cartModalBilling>* {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+/* #cartModal #cartModalBilling .labels {
+  text-align: right;
+}
+
+#cartModal #cartModalBilling .values {
+  text-align: right;
+} */
+
+/************************ Responsiveness ***********************************/
+
+@media screen and (min-width: 700px) {
+  #cartModal {
+    padding: 30px;
+    font-size: 1em;
+  }
+
+  #cartModal hr {
+    margin: 20px 3%;
+  }
+}

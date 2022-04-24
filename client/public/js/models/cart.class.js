@@ -90,6 +90,28 @@ export class Cart {
     localStorage.setItem('bd_boutique_cart', JSON.stringify(this));
   };
 
+  updateCartItemAmount = (product, newAmount) => {
+    const index = this.cartItems
+      .map((item) => item.product.id)
+      .indexOf(product.id);
+
+    const prevAmount = this.cartItems[index].amount;
+
+    // update cartItem amount, remove it if necessary
+    if (newAmount === 0) {
+      this.cartItems.splice(index, 1);
+    } else {
+      this.cartItems[index].amount = newAmount;
+    }
+
+    // update cart numItems
+    this.numItems -= prevAmount;
+    this.numItems += newAmount;
+
+    this.saveCart();
+    this.updateCartIconBadge();
+  };
+
   updateCartIconBadge = () => {
     document.getElementById('cartIconBadge').innerHTML = this.numItems;
   };

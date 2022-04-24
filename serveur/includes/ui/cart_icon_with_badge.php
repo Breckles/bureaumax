@@ -1,5 +1,5 @@
 <!-- <div class="cartIconWithBadgeContainer"> -->
-<button id="cartIconButtonWithBadge" class="iconButton" type="button" onclick="openDialog('cart')" aria-label="Ouvrir le panier d'achat">
+<button id="cartIconButtonWithBadge" class="iconButton" type="button" onclick="openDialog('cartModal')" aria-label="Ouvrir le panier d'achat">
   <?php
   echo "<img src=$DOMAINPATH/client/public/icones/cart_icon.svg />";
   ?>

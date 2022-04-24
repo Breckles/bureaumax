@@ -1,4 +1,5 @@
 import Cart from './models/cart.class.js';
+import { renderCartModal } from './cart_modal/cart_modal.js';
 import { getProducts, getUser } from './db.js';
 
 const rootURL = 'http://localhost:8080/sym_bureaumax_partie_1';
@@ -29,6 +30,13 @@ getUser().then((response) => {
 ///////////////// Drawer Interactions
 
 const openDialog = (id) => {
+  if (id === 'cartModal') {
+    openCartModal();
+    openDialogId = id;
+    document.getElementById(siteBackdropId).classList.add('visible');
+    return;
+  }
+
   const dialog = document.getElementById(id);
 
   if (!!dialog) {
@@ -40,6 +48,13 @@ const openDialog = (id) => {
 window.openDialog = openDialog;
 
 const closeDialog = () => {
+  if (openDialogId === 'cartModal') {
+    closeCartModal();
+    openDialogId = null;
+    document.getElementById(siteBackdropId).classList.remove('visible');
+    return;
+  }
+
   if (openDialogId !== null) {
     document.getElementById(openDialogId).classList.remove('open');
     openDialogId = null;
@@ -74,6 +89,17 @@ const validatePasswordMatch = () => {
   }
 };
 window.validatePasswordMatch = validatePasswordMatch;
+
+const openCartModal = () => {
+  renderCartModal(cart);
+};
+window.openCartModal = openCartModal;
+
+const closeCartModal = () => {
+  const modal = document.getElementById('cartModal');
+  document.body.removeChild(modal);
+};
+window.closeCartModal = closeCartModal;
 
 const logout = () => {
   fetch('serveur/scripts/deconnecter.php', { method: 'POST' });

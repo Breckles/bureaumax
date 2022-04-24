@@ -3,6 +3,7 @@
 @import url('./drawers.css');
 @import url('./header.css');
 @import url('./forms.css');
+@import url('./cart_modal.css');
 
 *,
 *::before,
@@ -51,6 +52,7 @@ html {
 }
 
 body {
+  position: relative;
   width: 100%;
   max-width: 1440px;
   height: 100%;
