@@ -1,0 +1,145 @@
+#adminProductsTableContainer {
+  width: 100%;
+}
+
+/************************** Table Controls **********************************/
+
+#adminTableControls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 20px;
+
+  background-color: var(--color-bg-secondary);
+}
+
+#adminTableControls h2 {
+  margin-right: auto;
+
+  font-family: var(--font-family-primary);
+  font-weight: 600;
+}
+
+#adminTableControls button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 2px 2px 2px #00000050;
+
+  font-family: var(--font-family-primary);
+  font-size: 1em;
+  font-weight: 600;
+}
+
+#adminTableControls button:hover {
+  cursor: pointer;
+}
+
+#adminTableControls button:active {
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
+#adminTableControls button img {
+  width: 15px;
+}
+
+#adminTableControls button.deleteButton {
+  background-color: var(--color-error);
+}
+
+#adminTableControls button.addButton {
+  background-color: var(--color-success);
+}
+
+/*********************** Table ******************************** */
+
+table#adminProductsTable {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+  /* min-width: 1100px; */
+}
+
+/* Headers */
+
+table#adminProductsTable thead tr {
+  border-top: 2px solid var(--color-text-primary);
+  border-bottom: 2px solid var(--color-text-primary);
+}
+
+table#adminProductsTable thead th {
+  padding: 10px 0;
+  background-color: var(--color-bg-tertiary);
+}
+
+table#adminProductsTable thead th:nth-child(2n) {
+  /* background-color: var(--color-bg-tertiary); */
+}
+
+table#adminProductsTable th#colCheckbox {
+  width: 5%;
+}
+
+table#adminProductsTable th#colId {
+  width: 5%;
+}
+
+table#adminProductsTable th#colImage {
+  width: 10%;
+}
+
+table#adminProductsTable th#colImageAltText {
+  width: 14%;
+}
+
+table#adminProductsTable th#colName {
+  width: 20%;
+}
+
+table#adminProductsTable th#colDescription {
+  width: 20%;
+}
+
+table#adminProductsTable th#colPrice {
+  width: 8%;
+}
+
+table#adminProductsTable th#colDiscount {
+  width: 8%;
+}
+
+table#adminProductsTable th#colAdminProductControls {
+  width: 10%;
+}
+
+/* Rows */
+table#adminProductsTable tbody tr:nth-child(2n) {
+  background-color: var(--color-bg-tertiary);
+}
+
+/* Cells */
+
+table#adminProductsTable td {
+  padding: 5px;
+}
+
+table#adminProductsTable td.colCheckbox,
+table#adminProductsTable td.colID,
+table#adminProductsTable td.colPrice,
+table#adminProductsTable td.colDiscountPrice,
+table#adminProductsTable td.colAdminProductControls {
+  text-align: center;
+}
+
+table#adminProductsTable td>img {
+  display: block;
+  max-width: 100%;
+}
+
+table#adminProductsTable .iconButton {
+  width: 20px;
+  margin: 10px;
+}

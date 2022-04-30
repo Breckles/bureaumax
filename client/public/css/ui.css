@@ -39,6 +39,7 @@ ul#productList li a:visited {
   gap: 5px;
   width: 100%;
   height: calc(100% - 3rem - 5px);
+  height: 100%;
   margin-bottom: 5px;
 
   border: 1px solid #F0F0F0;

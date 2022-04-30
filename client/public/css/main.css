@@ -15,17 +15,18 @@
 
 html {
 
-  /* Split Complementary theme with pink (#F70FE8) base color. Should contrast black and white nicely. */
   --highlighter-pink: #F70FE8;
-  --highlighter-yellow: #F7F71B;
+  --highlighter-blue: #30C5FF;
+  /* --highlighter-yellow: #F7F71B; */
   --highlighter-green: #02F751;
-  --neon-red: #F72119;
+  --neon-red: #f72119;
 
   --pinkish-white: #FAF8FA;
 
   /* A slightly pinker white for the background */
   --color-bg-primary: var(--pinkish-white);
-  --color-bg-product-card: beige;
+  --color-bg-secondary: var(--highlighter-blue);
+  --color-bg-tertiary: #80808030;
 
   --color-text-primary: black;
   --color-underline: var(--highlighter-pink);

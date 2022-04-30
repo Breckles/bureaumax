@@ -8,7 +8,8 @@
   <title>BureauMax - Admin</title>
   <link rel="icon" type="image/x-icon" href="../public/icones/logo_small.png">
   <link rel="stylesheet" href="../public/css/main.css">
-  <script src="../public/js/main.js" type="module"></script>
+  <link rel="stylesheet" href="../public/css/admin_page.css">
+  <!-- <script src="../public/js/main.js" type="module"></script> -->
   <script src="../public/js/admin.js" type="module"></script>
 </head>
 
@@ -33,7 +34,7 @@
 
   <div id="siteBackdrop" onclick="closeDialog()"></div>
 
-  <h1>Bonjour, Administrateur!</h1>
+  <div id="adminProductsTableContainer"></div>
 
 </body>
 
