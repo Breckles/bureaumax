@@ -1,0 +1,34 @@
+#productModal {
+  position: fixed;
+  z-index: 50001;
+  top: 10%;
+  left: 50%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: min(96%, 800px);
+  padding: 15px;
+
+  background-color: var(--color-bg-primary);
+  border-radius: 5px;
+  font-size: 0.8em;
+
+  animation: appear 300ms forwards;
+}
+
+/* Form */
+
+#productModal form {}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 40%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0%);
+  }
+}

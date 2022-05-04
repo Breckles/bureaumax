@@ -57,6 +57,7 @@
 /*********************** Table ******************************** */
 
 table#adminProductsTable {
+  position: relative;
   table-layout: fixed;
   border-collapse: collapse;
   width: 100%;
@@ -65,18 +66,26 @@ table#adminProductsTable {
 
 /* Headers */
 
-table#adminProductsTable thead tr {
+table#adminProductsTable thead {
+  /* position: sticky;
+  top: 0;
   border-top: 2px solid var(--color-text-primary);
   border-bottom: 2px solid var(--color-text-primary);
+  background-color: var(--color-bg-tertiary);
+  height: 20px; */
+}
+
+table#adminProductsTable #stickyHeader {
+  position: sticky;
+  top: 0;
+  border-top: 2px solid var(--color-text-primary);
+  border-bottom: 2px solid var(--color-text-primary);
+  background-color: var(--color-bg-tertiary);
+  height: 20px;
 }
 
 table#adminProductsTable thead th {
   padding: 10px 0;
-  background-color: var(--color-bg-tertiary);
-}
-
-table#adminProductsTable thead th:nth-child(2n) {
-  /* background-color: var(--color-bg-tertiary); */
 }
 
 table#adminProductsTable th#colCheckbox {

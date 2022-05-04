@@ -4,6 +4,7 @@
 @import url('./header.css');
 @import url('./forms.css');
 @import url('./cart_modal.css');
+@import url('./product_modal.css');
 
 *,
 *::before,

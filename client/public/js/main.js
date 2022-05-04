@@ -101,11 +101,6 @@ const closeCartModal = () => {
 };
 window.closeCartModal = closeCartModal;
 
-const logout = () => {
-  fetch('serveur/scripts/deconnecter.php', { method: 'POST' });
-};
-window.logout = logout;
-
 //////////////// Cart Actions
 
 const addToCartHandler = (product) => {
@@ -127,7 +122,7 @@ const renderProducts = (products) => {
     const listItem = `<li id='product_${product.id}' class="productListItem">
     <a href="#">
     <div class="productCard">
-      <img src='${rootURL}/client/public/images/${product.image}' alt='${product.imageAltText}'>
+      <img src='${rootURL}/serveur/productImages/${product.image}' alt='${product.imageAltText}'>
       <div class='productCardContent'>
       <h3>${product.name}</h3>
       <p class='productCardDescription'>${product.description}</p>

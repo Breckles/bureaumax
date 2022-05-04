@@ -18,4 +18,5 @@ if ($requestBodyString) {
     // $stmt->bind_param('i', 1);
     echo json_encode($deleteIds);
   }
+  echo json_encode($requestBody->nothing);
 }

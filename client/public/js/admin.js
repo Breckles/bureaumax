@@ -1,4 +1,5 @@
 import { getProducts } from './db.js';
+import { renderProductModal } from './product_modal/product_modal.js';
 import AdminProductsTable from './admin_manage_products/admin_products_table.js';
 
 const rootURL = 'http://localhost:8080/sym_bureaumax_partie_1';
@@ -21,13 +22,6 @@ getProducts()
   });
 
 const openDialog = (id) => {
-  if (id === 'cartModal') {
-    openCartModal();
-    openDialogId = id;
-    document.getElementById(siteBackdropId).classList.add('visible');
-    return;
-  }
-
   const dialog = document.getElementById(id);
 
   if (!!dialog) {
@@ -39,8 +33,8 @@ const openDialog = (id) => {
 window.openDialog = openDialog;
 
 const closeDialog = () => {
-  if (openDialogId === 'cartModal') {
-    closeCartModal();
+  if (openDialogId === 'productModal') {
+    closeProductModal();
     openDialogId = null;
     document.getElementById(siteBackdropId).classList.remove('visible');
     return;
@@ -54,25 +48,22 @@ const closeDialog = () => {
 };
 window.closeDialog = closeDialog;
 
+const openProductModal = (product = null) => {
+  openDialogId = 'productModal';
+  document.getElementById(siteBackdropId).classList.add('visible');
+  renderProductModal(`${rootURL}/serveur/api/product/create.php`, product);
+};
+window.openProductModal = openProductModal;
+
+const closeProductModal = () => {
+  const modal = document.getElementById('productModal');
+  document.body.removeChild(modal);
+};
+// window.closeProductModal = closeProductModal;
+
 const renderProductsTable = (products) => {
   const container = document.getElementById('adminProductsTableContainer');
   const productsTable = new AdminProductsTable(products, rootURL);
 
   container.appendChild(productsTable.content);
 };
-
-const body = { ids: [1, 2, 3] };
-
-fetch(`${rootURL}/serveur/api/product/delete.php?ids=dkdk`, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(body),
-})
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.log(error.message);
-  });
