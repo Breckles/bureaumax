@@ -88,11 +88,11 @@ class AdminProductsTable {
     );
   }
 
-  addProductHandler = () => {
+  addProductHandler = (onProductUpdate) => {
     window.openProductModal();
   };
 
-  modifyProductHandler = (product) => {
+  modifyProductHandler = (product, onProductUpdate) => {
     window.openProductModal(product);
   };
 

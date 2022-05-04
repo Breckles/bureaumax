@@ -1,0 +1,30 @@
+<h3>Ajouter un nouveau produit<h3>
+    <form id="productForm">
+      <div class="formInput"> <label for="formProductName">Nom</label> <input id="formProductName"
+               name="formProductName"
+               type="text"
+               value="">
+      </div>
+      <div class="formInput"> <label for="formProductDescription">Description du produit</label> <textarea
+                  id="formProductDescription"
+                  name="formProductDescription"></textarea> </div>
+      <div class="formInput"> <label for="formProductPrice">Prix</label> <input id="formProductPrice"
+               name="formProductPrice"
+               type="number"
+               min="0"
+               step="0.01"
+               value=""> </div>
+      <div class="formInput"> <label for="formProductDiscountPrice">Prix d'aubaine (laissez a 0 si pas
+          d'aubaines)</label> <input id="formProductDiscountPrice"
+               name="formProductDiscountPrice"
+               type="number"
+               min="0"
+               step="0.01"
+               value=""> </div>
+      <div class="formInput"> <label for="formProductImage">Image</label> <input id="formProductImage"
+               name="formProductImage"
+               type="file"> </div>
+      <div class="formInput"> <label for="formProductImageAltText">Texte descriptif de l'image</label> <textarea
+                  id="formProductImageAltText"
+                  name="formProductImageAltText"></textarea> </div> <button type="submit">Soumettre</button>
+    </form>

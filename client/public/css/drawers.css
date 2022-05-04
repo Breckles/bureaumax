@@ -89,6 +89,15 @@
   border-bottom: 2px solid var(--color-text-primary);
 }
 
+/* Will apply when user is logged in. Messed up? YES! */
+#authDrawer>h2 {
+  margin-bottom: 20px;
+}
+
+#authDrawer>a {
+  margin-bottom: 10px;
+}
+
 #authDrawer form {
   display: none;
 }

@@ -27,7 +27,7 @@ html {
   /* A slightly pinker white for the background */
   --color-bg-primary: var(--pinkish-white);
   --color-bg-secondary: var(--highlighter-blue);
-  --color-bg-tertiary: #80808030;
+  --color-bg-tertiary: #D3D3D3;
 
   --color-text-primary: black;
   --color-underline: var(--highlighter-pink);

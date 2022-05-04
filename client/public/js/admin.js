@@ -1,5 +1,5 @@
 import { getProducts } from './db.js';
-import { renderProductModal } from './product_modal/product_modal.js';
+import ProductModal from './product_modal/product_modal.js';
 import AdminProductsTable from './admin_manage_products/admin_products_table.js';
 
 const rootURL = 'http://localhost:8080/sym_bureaumax_partie_1';
@@ -51,7 +51,17 @@ window.closeDialog = closeDialog;
 const openProductModal = (product = null) => {
   openDialogId = 'productModal';
   document.getElementById(siteBackdropId).classList.add('visible');
-  renderProductModal(`${rootURL}/serveur/api/product/create.php`, product);
+
+  const productModal = new ProductModal(product);
+
+  document.body.append(productModal.content);
+  const modalMode = product ? 'update' : 'create';
+  console.log(modalMode);
+
+  document
+    .getElementById('productModal')
+    .getElementsByTagName('form')[0]
+    .addEventListener('submit', onSubmitHandler.bind(null, modalMode));
 };
 window.openProductModal = openProductModal;
 
@@ -66,4 +76,37 @@ const renderProductsTable = (products) => {
   const productsTable = new AdminProductsTable(products, rootURL);
 
   container.appendChild(productsTable.content);
+};
+
+const onProductUpdate = () => {
+  console.log('In onUpdate');
+};
+
+const onSubmitHandler = (mode, event) => {
+  event.preventDefault();
+  console.log(mode);
+
+  let formAction = `${rootURL}/serveur/api/product/create.php`;
+
+  if (mode === 'update') {
+    formAction = `${rootURL}/serveur/api/product/update.php`;
+  }
+
+  const formData = new FormData(event.currentTarget);
+
+  fetch(formAction, {
+    method: 'POST',
+    body: formData,
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('success!');
+        onProductUpdate();
+      } else {
+        console.log(response.statusText);
+      }
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
 };

@@ -59,7 +59,7 @@
 table#adminProductsTable {
   position: relative;
   table-layout: fixed;
-  border-collapse: collapse;
+  border-spacing: 0;
   width: 100%;
   /* min-width: 1100px; */
 }
@@ -67,24 +67,15 @@ table#adminProductsTable {
 /* Headers */
 
 table#adminProductsTable thead {
-  /* position: sticky;
-  top: 0;
-  border-top: 2px solid var(--color-text-primary);
-  border-bottom: 2px solid var(--color-text-primary);
-  background-color: var(--color-bg-tertiary);
-  height: 20px; */
-}
-
-table#adminProductsTable #stickyHeader {
   position: sticky;
   top: 0;
-  border-top: 2px solid var(--color-text-primary);
-  border-bottom: 2px solid var(--color-text-primary);
+  height: 50px;
   background-color: var(--color-bg-tertiary);
-  height: 20px;
 }
 
 table#adminProductsTable thead th {
+  border-top: 2px solid var(--color-text-primary);
+  border-bottom: 2px solid var(--color-text-primary);
   padding: 10px 0;
 }
 
