@@ -29,6 +29,7 @@ USE `bdboutique`;
 -- Table structure for table `connexion`
 --
 
+DROP TABLE IF EXISTS `connexion`;
 CREATE TABLE `connexion` (
   `idm` int(11) NOT NULL,
   `courriel` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
@@ -62,6 +63,7 @@ INSERT INTO `connexion` (`idm`, `courriel`, `pass`, `role`, `statut`) VALUES
 -- Table structure for table `membres`
 --
 
+DROP TABLE IF EXISTS `membres`;
 CREATE TABLE `membres` (
   `idm` int(11) NOT NULL,
   `nom` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -96,6 +98,7 @@ INSERT INTO `membres` (`idm`, `nom`, `prenom`, `courriel`, `sexe`, `datenaissanc
 -- Table structure for table `products`
 --
 
+DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,

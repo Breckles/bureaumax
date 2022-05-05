@@ -1,22 +1,42 @@
 <?php
 require_once("../../includes/configbd.inc.php");
-// require_once("/serveur/models/product.class.php");
+require_once("../../models/product.class.php");
+$imageFolderPath = "../../productImages/";
+
+$idsParam = $_POST['ids'];
+
+if ($idsParam) {
+
+  $idsArray = json_decode($idsParam);
+  $dbIds = implode(', ', $idsArray);
 
 
-$requestBodyString = file_get_contents('php://input');
+  // Retrieve products' current images
+  $query = "SELECT * FROM products WHERE id IN ($dbIds)";
+  $statement = $connexion->prepare($query);
+  $statement->execute();
+  $result = $statement->get_result();
 
-if ($requestBodyString) {
-  $requestBody = json_decode($requestBodyString);
+  // Delete images
+  $product = $result->fetch_object('Product');
+  while ($product != null) {
+    $image = $product->image;
 
-  $deleteIds = $requestBody->ids;
+    if ($image != 'blank.svg') {
+      @unlink($imageFolderPath . $image);
+    }
 
-  if ($deleteIds) {
-    $deleteIdsString = $deleteIds;
-    // $query = "DELETE FROM products WHERE id IN ()";
-
-    // $stmt = $connexion->prepare($query);
-    // $stmt->bind_param('i', 1);
-    echo json_encode($deleteIds);
+    $product = $result->fetch_object('Product');
   }
-  echo json_encode($requestBody->nothing);
+
+  // Delete records from table
+  $query = "DELETE FROM products WHERE id IN ($dbIds)";
+
+  $stmt = $connexion->prepare($query);
+  $success = $stmt->execute();
+} else {
+  echo "No ids sent with request.";
+  http_response_code(400);
 }
+
+mysqli_close($connexion);

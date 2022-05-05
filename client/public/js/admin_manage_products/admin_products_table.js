@@ -24,6 +24,7 @@ const adminProductsTable = `<div id="adminTableControls">\
 class AdminProductsTable {
   constructor(products, rootURL) {
     this.products = products;
+    this.selectAll = false;
 
     const adminProductsTableTemplate = document.createElement('template');
     adminProductsTableTemplate.innerHTML = adminProductsTable;
@@ -33,7 +34,7 @@ class AdminProductsTable {
 
     for (const product of this.products) {
       const newRowHTML = `<tr>\
-      <td class="colCheckbox"><input type="checkbox" id="checkbox_product_${product.id}" name="deleteProducts" value=${product.id} aria-label="selectionner tous le produit ${product.id}" /></td>\
+      <td class="colCheckbox"><input type="checkbox" class="productCheckbox" id="checkbox_product_${product.id}" name="deleteProducts" value=${product.id} aria-label="selectionner le produit ${product.id}" /></td>\
       <td class="colID">${product.id}</td>\
       <td><img src="${rootURL}/serveur/productImages/${product.image}" alt="${product.imageAltText}" /></td>\
       <td>${product.imageAltText}</td>\
@@ -58,14 +59,14 @@ class AdminProductsTable {
         .getElementById(`modify_button_${product.id}`)
         .addEventListener('click', (event) => {
           event.preventDefault();
-          this.modifyProductHandler(product);
+          this.onModifyProductHandler(product);
         });
 
       rowTemplate.content
         .getElementById(`delete_button_${product.id}`)
         .addEventListener('click', (event) => {
           event.preventDefault();
-          this.deleteProductHandler(product.id);
+          this.onDeleteProductHandler(product.id);
         });
 
       tableBody.appendChild(rowTemplate.content);
@@ -74,9 +75,15 @@ class AdminProductsTable {
     this.content = adminProductsTableTemplate.content;
 
     // Wire up eventHandlers
+    const selectAllCheckboxInput =
+      adminProductsTableTemplate.content.getElementById('selectAllCheckbox');
+    selectAllCheckboxInput.addEventListener('click', () => {
+      this.onToggleSelectAllHandler();
+    });
+
     const addProductButton =
       adminProductsTableTemplate.content.getElementById('addProductButton');
-    addProductButton.addEventListener('click', this.addProductHandler);
+    addProductButton.addEventListener('click', this.onAddProductHandler);
 
     const deleteAllSelectedButton =
       adminProductsTableTemplate.content.getElementById(
@@ -84,21 +91,44 @@ class AdminProductsTable {
       );
     deleteAllSelectedButton.addEventListener(
       'click',
-      this.deleteAllSelectedHandler
+      this.onDeleteAllSelectedHandler
     );
   }
 
-  addProductHandler = (onProductUpdate) => {
+  onAddProductHandler = (onProductUpdate) => {
     window.openProductModal();
   };
 
-  modifyProductHandler = (product, onProductUpdate) => {
+  onModifyProductHandler = (product, onProductUpdate) => {
     window.openProductModal(product);
   };
 
-  deleteAllSelectedHandler = () => {};
+  onDeleteAllSelectedHandler = () => {
+    const selectedCheckboxes = document.querySelectorAll(
+      'input[name="deleteProducts"]:checked'
+    );
+    const ids = [];
 
-  deleteProductHandler = () => {};
+    if (selectedCheckboxes.length > 0) {
+      selectedCheckboxes.forEach((checkbox) => ids.push(+checkbox.value));
+      window.deleteProducts(ids);
+    }
+  };
+
+  onDeleteProductHandler = (id) => {
+    window.deleteProducts([id]);
+  };
+
+  onToggleSelectAllHandler = () => {
+    const productCheckboxes =
+      document.getElementsByClassName('productCheckbox');
+
+    this.selectAll = !this.selectAll;
+
+    for (let i = 0; i < productCheckboxes.length; i++) {
+      productCheckboxes[i].checked = this.selectAll;
+    }
+  };
 }
 
 export default AdminProductsTable;

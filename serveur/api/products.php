@@ -32,3 +32,5 @@ if (isset($_SESSION['usager'])) {
 $response = (object)array("products" => $products, "user" => $user);
 
 echo json_encode($response);
+
+mysqli_close($connexion);

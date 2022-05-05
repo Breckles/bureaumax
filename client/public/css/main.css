@@ -21,6 +21,7 @@ html {
   /* --highlighter-yellow: #F7F71B; */
   --highlighter-green: #02F751;
   --neon-red: #f72119;
+  --fire-orange: #FF5C00;
 
   --pinkish-white: #FAF8FA;
 
@@ -33,6 +34,7 @@ html {
   --color-underline: var(--highlighter-pink);
 
   --color-error: var(--neon-red);
+  --color-error: var(--fire-orange);
   --color-success: var(--highlighter-green);
 
   --color-highlight-primary: var(--highlighter-pink);

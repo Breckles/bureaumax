@@ -71,6 +71,35 @@ const closeProductModal = () => {
 };
 // window.closeProductModal = closeProductModal;
 
+const deleteProducts = (ids) => {
+  const userConfirmed = window.confirm(
+    `Etes-vous certain de vouloir supprimer ${
+      ids.length > 1 ? 'ces articles' : 'cet article'
+    }?`
+  );
+
+  if (userConfirmed) {
+    const body = new FormData();
+    body.append('ids', JSON.stringify(ids));
+    fetch(`${rootURL}/serveur/api/product/delete.php`, {
+      method: 'POST',
+      body: body,
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log('success!');
+          onProductsDeleted(ids);
+        } else {
+          console.log(response.statusText);
+        }
+      })
+      .catch((error) => {
+        console.log('Error: %o', error);
+      });
+  }
+};
+window.deleteProducts = deleteProducts;
+
 const renderProductsTable = (products) => {
   const container = document.getElementById('adminProductsTableContainer');
   const productsTable = new AdminProductsTable(products, rootURL);
@@ -78,8 +107,18 @@ const renderProductsTable = (products) => {
   container.appendChild(productsTable.content);
 };
 
-const onProductUpdate = () => {
-  console.log('In onUpdate');
+const removeProductsTable = () => {
+  document.getElementById('adminProductsTableContainer').replaceChildren();
+};
+
+const onProductUpdated = (id) => {
+  refreshTable(products);
+};
+
+const onProductsDeleted = (ids) => {
+  products = products.filter((product) => !ids.includes(product.id));
+  console.log(products);
+  refreshTable(products);
 };
 
 const onSubmitHandler = (mode, event) => {
@@ -93,7 +132,6 @@ const onSubmitHandler = (mode, event) => {
   }
 
   const formData = new FormData(event.currentTarget);
-
   fetch(formAction, {
     method: 'POST',
     body: formData,
@@ -101,12 +139,17 @@ const onSubmitHandler = (mode, event) => {
     .then((response) => {
       if (response.ok) {
         console.log('success!');
-        onProductUpdate();
+        onProductUpdated(formData.get('id'));
       } else {
         console.log(response.statusText);
       }
     })
     .catch((error) => {
-      console.log(error.message);
+      console.log('Error: %o', error);
     });
+};
+
+const refreshTable = (products) => {
+  removeProductsTable();
+  renderProductsTable(products);
 };

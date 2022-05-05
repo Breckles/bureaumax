@@ -45,3 +45,5 @@ try {
   echo "(in catch) Error while creating new product!";
   http_response_code(400);
 }
+
+mysqli_close($connexion);

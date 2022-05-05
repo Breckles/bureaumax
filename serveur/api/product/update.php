@@ -11,6 +11,10 @@ $prodPrice = $_POST['formProductPrice'];
 $prodDiscountPrice = $_POST['formProductDiscountPrice'];
 $prodImageAltText = $_POST['formProductImageAltText'];
 
+if ($prodDiscountPrice == 0) {
+  $prodDiscountPrice = null;
+}
+
 // Deal with image file
 $imageFolderPath = "../../productImages/";
 
@@ -60,3 +64,5 @@ try {
   echo $e->getMessage();
   http_response_code(400);
 }
+
+mysqli_close($connexion);
