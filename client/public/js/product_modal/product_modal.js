@@ -17,7 +17,7 @@ class ProductModal {
     const productModalHeaderHTML = product
       ? `<h3>Modifier le produit N<sup>o</sup> ${product.id}</h3>\
     `
-      : `<h3>Ajouter un nouveau produit<h3>\
+      : `<h3>Ajouter un nouveau produit</h3>\
     `;
 
     const productModalFormHTML = `<form id="productForm">\
@@ -36,6 +36,7 @@ class ProductModal {
     product ? product.description : ''
   }</textarea>\
   </div>\
+  <div id="formPrices">\
   <div class="formInput">\
   <label for="formProductPrice">Prix</label>\
   <input id="formProductPrice" name="formProductPrice" type="number" min="0" step="0.01" value="${
@@ -48,10 +49,15 @@ class ProductModal {
     product ? product.discountPrice : 0
   }">\
   </div>\
+  </div>\
   <div class="formInput">\
   <label for="formProductImage">Image</label>\
   <input id="formProductImage" name="formProductImage" type="file">\
-  ${product ? `<span>Valeur Presente: ${product.image}</span>` : ''}\
+  ${
+    product
+      ? `<span id="currentImageValue">Valeur presente: ${product.image}</span>`
+      : ''
+  }\
   </div>\
   <div class="formInput">\
   <label for="formProductImageAltText">Texte descriptif de l'image</label>\

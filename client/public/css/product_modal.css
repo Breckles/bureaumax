@@ -7,19 +7,49 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: min(96%, 800px);
+  width: min(96%, 600px);
   padding: 15px;
 
   background-color: var(--color-bg-primary);
   border-radius: 5px;
-  font-size: 0.8em;
+  font-size: 1em;
 
   animation: appear 300ms forwards;
 }
 
 /* Form */
 
-#productModal form {}
+#productModal form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#productModal form #formPrices {
+  display: flex;
+}
+
+#productModal form #formPrices>* {
+  /* flex: 1; */
+}
+
+#productModal form .formInput {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#productModal form .formInput label {
+  font-weight: 700;
+}
+
+#productModal form span#currentImageValue {
+  margin-left: 10px;
+
+  font-size: 0.8em;
+  font-style: italic;
+  font-weight: 300;
+}
 
 @keyframes appear {
   from {

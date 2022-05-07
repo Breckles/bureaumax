@@ -54,7 +54,17 @@ try {
   $success = $statement->execute();
 
   if ($success) {
-    echo "Product updated successfully!!";
+    // echo "Product updated successfully!!";
+    $updatedProduct = (object)array(
+      "id" => intval($prodId),
+      "name" => $prodName,
+      "image" => $dbImage,
+      "imageAltText" => $prodImageAltText,
+      "description" => $prodDesc,
+      "price" => floatval($prodPrice),
+      "discountPrice" => floatval($prodDiscountPrice),
+    );
+    echo json_encode($updatedProduct);
   } else {
     echo "(in else) Error while updating product!";
     http_response_code(400);

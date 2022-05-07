@@ -36,7 +36,17 @@ try {
 
   if ($success) {
     $newId = $connexion->insert_id;
-    echo "New product created!!";
+    // echo "New product created!!";
+    $newProduct = (object)array(
+      "id" => intval($newId),
+      "name" => $prodName,
+      "image" => $dbImage,
+      "imageAltText" => $prodImageAltText,
+      "description" => $prodDesc,
+      "price" => floatval($prodPrice),
+      "discountPrice" => floatval($prodDiscountPrice),
+    );
+    echo json_encode($newProduct);
   } else {
     echo "(in else) Error while creating new product!";
     http_response_code(400);

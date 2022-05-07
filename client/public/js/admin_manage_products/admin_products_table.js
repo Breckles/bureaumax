@@ -1,4 +1,5 @@
-const adminProductsTable = `<div id="adminTableControls">\
+const adminProductsTable = `<div>\
+<div id="adminTableControls">\
 <h2>Gérer les produits</h2>\
 <button id="deleteAllSelectedButton" class="deleteButton" type="button">Supprimer <img src="../public/icones/circle_minus_icon.svg" width=15 height=15 /></button>\
 <button id="addProductButton" class="addButton" type="button">Ajouter <img src="../public/icones/circle_plus_icon.svg" width=15 height=15 /></button>\
@@ -19,7 +20,8 @@ const adminProductsTable = `<div id="adminTableControls">\
 </thead>\
 <tbody id="adminProductsTableBody"></tbody>\
 <tfoot></tfoot>\
-</table>`;
+</table>\
+</div>`;
 
 class AdminProductsTable {
   constructor(products, rootURL) {
@@ -34,19 +36,35 @@ class AdminProductsTable {
 
     for (const product of this.products) {
       const newRowHTML = `<tr>\
-      <td class="colCheckbox"><input type="checkbox" class="productCheckbox" id="checkbox_product_${product.id}" name="deleteProducts" value=${product.id} aria-label="selectionner le produit ${product.id}" /></td>\
+      <td class="colCheckbox"><input type="checkbox" class="productCheckbox" id="checkbox_product_${
+        product.id
+      }" name="deleteProducts" value=${
+        product.id
+      } aria-label="selectionner le produit ${product.id}" /></td>\
       <td class="colID">${product.id}</td>\
-      <td><img src="${rootURL}/serveur/productImages/${product.image}" alt="${product.imageAltText}" /></td>\
+      <td><img src="${rootURL}/serveur/productImages/${product.image}" alt="${
+        product.imageAltText
+      }" /></td>\
       <td>${product.imageAltText}</td>\
       <td>${product.name}</td>\
       <td>${product.description}</td>\
-      <td class="colPrice">${product.price}</td>\
-      <td class="colDiscountPrice">${product.discountPrice}</td>\
+      <td class="colPrice">${product.price.toFixed(2)}</td>\
+      <td class="colDiscountPrice">${
+        product.discountPrice ? product.discountPrice.toFixed(2) : null
+      }</td>\
       <td class="colAdminProductControls">\
-      <button id="modify_button_${product.id}" class="iconButton" type="button" aria-label="Modifier le produit numero ${product.id}">\
+      <button id="modify_button_${
+        product.id
+      }" class="iconButton" type="button" aria-label="Modifier le produit numero ${
+        product.id
+      }">\
       <img src="${rootURL}/client/public/icones/pen_icon.svg" />\
       </button>\
-      <button id="delete_button_${product.id}" class="iconButton" type="button" aria-label="Supprimer le produit numero ${product.id}">\
+      <button id="delete_button_${
+        product.id
+      }" class="iconButton" type="button" aria-label="Supprimer le produit numero ${
+        product.id
+      }">\
       <img src="${rootURL}/client/public/icones/trash_can_icon.svg" />\
       </button>\
       </td>\   
@@ -72,8 +90,6 @@ class AdminProductsTable {
       tableBody.appendChild(rowTemplate.content);
     }
 
-    this.content = adminProductsTableTemplate.content;
-
     // Wire up eventHandlers
     const selectAllCheckboxInput =
       adminProductsTableTemplate.content.getElementById('selectAllCheckbox');
@@ -93,13 +109,15 @@ class AdminProductsTable {
       'click',
       this.onDeleteAllSelectedHandler
     );
+
+    this.content = adminProductsTableTemplate.content;
   }
 
-  onAddProductHandler = (onProductUpdate) => {
+  onAddProductHandler = () => {
     window.openProductModal();
   };
 
-  onModifyProductHandler = (product, onProductUpdate) => {
+  onModifyProductHandler = (product) => {
     window.openProductModal(product);
   };
 
@@ -116,7 +134,7 @@ class AdminProductsTable {
   };
 
   onDeleteProductHandler = (id) => {
-    window.deleteProducts([id]);
+    window.deleteProducts([+id]);
   };
 
   onToggleSelectAllHandler = () => {

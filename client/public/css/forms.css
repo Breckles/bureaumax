@@ -7,15 +7,15 @@ form li {
   padding: 10px 0;
 }
 
-form input {
-  width: 95%;
+form input,
+form textarea {
   padding: 5px;
 
   border: 3px solid var(--color-text-primary);
   border-radius: 6px;
   font-size: 16px;
+  font-family: inherit;
 }
-
 
 form input:valid {
   border-color: var(--color-success);
@@ -25,10 +25,15 @@ form input:invalid {
   border-color: var(--color-error)
 }
 
-form input[type=date] {
+form input[type=date],
+form input[type=number] {
   border-color: var(--color-text-primary);
   width: unset;
 }
+
+/* form input[type=number] {
+  width: unset;
+} */
 
 form input:placeholder-shown {
   border-color: unset;

@@ -119,7 +119,11 @@ INSERT INTO `products` (`id`, `name`, `image`, `imageAltText`, `description`, `p
 (3, 'BIC - Stylos à bille Round Stic ronds, pointe moyenne, 1,0 mm, bleu, paq./60', 'bics.webp', 'Extra valeur. C\'est ecrit sur la boite.', 'Extra valeur. C\'est ecrit sur la boite.', 7.49, 3.49),
 (4, 'Omega II - Casque dur, ajustement à coulisse latérale, homologué CSA Type 1, classe E, ANSI Type I ', 'casque.webp', 'Pour le developpement web dangereux.', 'Pour le developpement web dangereux.', 27.99, NULL),
 (5, 'Seagate - Disque dur externe USB 3.2 Gen 1 de 2 To One touch - Rouge', 'seagate.webp', 'Ca en fait, d\'la porno.', 'Ca en fait, d\'la porno.', 89.99, NULL),
-(6, 'CoastWide Professional - Papier Hygiénique Géant à 2 Épaisseurs - Paquet de 6', 'tp.webp', 'Il en manque toujours.', 'Il en manque toujours.', 26.99, NULL);
+(6, 'CoastWide Professional - Papier Hygiénique Géant à 2 Épaisseurs - Paquet de 6', 'tp.webp', 'Il en manque toujours.', 'Il en manque toujours.', 26.99, NULL),
+(7, 'Brother - Cartouche de toner noir TN221BK rendement standard', 'toner.webp', 'Une explosion de couleur... dans ta face.', 'Une explosion de couleur... dans ta face.', 123.99, 109.99),
+(8, 'Apple AirPods - 3e génération', 'pods.webp', '2 petits extra-terrestres dans une boite chic.', '2 petits extra-terrestres dans une boite chic.', 239.99, 199.99),
+(9, 'Brother - Cartouche de toner noir TN221BK rendement standard', 'toner.webp', 'Une explosion de couleur... dans ta face.', 'Une explosion de couleur... dans ta face.', 123.99, 109.99),
+(10, 'Apple AirPods - 3e génération', 'pods.webp', '2 petits extra-terrestres dans une boite chic.', '2 petits extra-terrestres dans une boite chic.', 239.99, 199.99);
 
 --
 -- Indexes for dumped tables

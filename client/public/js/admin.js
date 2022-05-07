@@ -7,7 +7,7 @@ const rootURL = 'http://localhost:8080/sym_bureaumax_partie_1';
 const siteBackdropId = 'siteBackdrop';
 let openDialogId = null;
 
-let products;
+let products = [];
 
 getProducts()
   .then((response) => {
@@ -71,57 +71,69 @@ const closeProductModal = () => {
 };
 // window.closeProductModal = closeProductModal;
 
-const deleteProducts = (ids) => {
+const deleteProducts = async (ids) => {
   const userConfirmed = window.confirm(
     `Etes-vous certain de vouloir supprimer ${
       ids.length > 1 ? 'ces articles' : 'cet article'
     }?`
   );
-
+  console.log(ids);
   if (userConfirmed) {
     const body = new FormData();
     body.append('ids', JSON.stringify(ids));
-    fetch(`${rootURL}/serveur/api/product/delete.php`, {
-      method: 'POST',
-      body: body,
-    })
-      .then((response) => {
-        if (response.ok) {
-          console.log('success!');
-          onProductsDeleted(ids);
-        } else {
-          console.log(response.statusText);
+
+    try {
+      const response = await fetch(
+        `${rootURL}/serveur/api/product/delete.php`,
+        {
+          method: 'POST',
+          body: body,
         }
-      })
-      .catch((error) => {
-        console.log('Error: %o', error);
-      });
+      );
+
+      if (response.ok) {
+        console.log('success!');
+        onProductsDeleted(ids);
+      }
+    } catch (error) {
+      console.log('Error: %o', error);
+    }
   }
 };
 window.deleteProducts = deleteProducts;
 
-const renderProductsTable = (products) => {
+const renderProductsTable = () => {
   const container = document.getElementById('adminProductsTableContainer');
   const productsTable = new AdminProductsTable(products, rootURL);
-
-  container.appendChild(productsTable.content);
+  console.log('in renderProductsTable, products: %o', products);
+  container.replaceChildren(productsTable.content);
 };
 
 const removeProductsTable = () => {
-  document.getElementById('adminProductsTableContainer').replaceChildren();
+  // document.getElementById('adminProductsTableContainer').replaceChildren();
 };
 
-const onProductUpdated = (id) => {
-  refreshTable(products);
+const onProductUpdated = (updatedProduct) => {
+  closeDialog();
+  const updatedProductIndex = products
+    .map((product) => product.id)
+    .indexOf(updatedProduct.id);
+
+  if (updatedProductIndex === -1) {
+    products.push(updatedProduct);
+  } else {
+    products[updatedProductIndex] = updatedProduct;
+  }
+  refreshTable();
 };
 
 const onProductsDeleted = (ids) => {
   products = products.filter((product) => !ids.includes(product.id));
   console.log(products);
-  refreshTable(products);
+  refreshTable();
 };
 
-const onSubmitHandler = (mode, event) => {
+const onSubmitHandler = async (mode, event) => {
   event.preventDefault();
   console.log(mode);
 
@@ -132,21 +144,23 @@ const onSubmitHandler = (mode, event) => {
   }
 
   const formData = new FormData(event.currentTarget);
-  fetch(formAction, {
-    method: 'POST',
-    body: formData,
-  })
-    .then((response) => {
-      if (response.ok) {
-        console.log('success!');
-        onProductUpdated(formData.get('id'));
-      } else {
-        console.log(response.statusText);
-      }
-    })
-    .catch((error) => {
-      console.log('Error: %o', error);
+
+  try {
+    const response = await fetch(formAction, {
+      method: 'POST',
+      body: formData,
     });
+
+    if (response.ok) {
+      console.log('success!');
+      const returnedProduct = await response.json();
+      onProductUpdated(returnedProduct);
+    } else {
+      console.log(response.statusText);
+    }
+  } catch (error) {
+    console.log('Error: %o', error);
+  }
 };
 
 const refreshTable = (products) => {

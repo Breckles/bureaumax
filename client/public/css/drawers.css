@@ -102,6 +102,10 @@
   display: none;
 }
 
+#authDrawer form input {
+  width: 95%;
+}
+
 #authDrawer form.active {
   display: flex;
   flex-direction: column;
