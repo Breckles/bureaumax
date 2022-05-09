@@ -3,7 +3,7 @@ import Toast from './toast/toast.js';
 import ProductModal from './product_modal/product_modal.js';
 import AdminProductsTable from './admin_manage_products/admin_products_table.js';
 
-const rootURL = 'http://localhost:8080/sym_bureaumax_partie_1';
+const rootURL = 'http://localhost:8080/bureaumax_partie_3';
 
 const siteBackdropId = 'siteBackdrop';
 let openDialogId = null;

@@ -32,7 +32,7 @@ class CartModalList {
       const cartModalListItem = `
     <li id="cartModalListItem_${cartItem.product.id}" class="cartModalListItem">
     <img
-    src="http://localhost:8080/sym_bureaumax_partie_1/serveur/productImages/${
+    src="http://localhost:8080/bureaumax_partie_3/serveur/productImages/${
       cartItem.product.image
     }"
     alt="${cartItem.product.imageAltText}"

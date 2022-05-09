@@ -1,6 +1,6 @@
 import Product from './models/product.class.js';
 
-const baseURL = 'http://localhost:8080/sym_bureaumax_partie_1/serveur/api';
+const baseURL = 'http://localhost:8080/bureaumax_partie_3/serveur/api';
 
 export const getProducts = () => {
   return fetch(`${baseURL}/products.php`).then((response) => {
