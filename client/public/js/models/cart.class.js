@@ -113,7 +113,9 @@ export class Cart {
   };
 
   updateCartIconBadge = () => {
-    document.getElementById('cartIconBadge').innerHTML = this.numItems;
+    try {
+      document.getElementById('cartIconBadge').innerHTML = this.numItems;
+    } catch (error) {}
   };
 }
 

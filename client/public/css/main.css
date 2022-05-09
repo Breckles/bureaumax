@@ -87,7 +87,7 @@ button {
 }
 
 button:hover {
-  /* background-color: var(--color-text-anchor-hover); */
+  cursor: pointer;
 }
 
 button:active {

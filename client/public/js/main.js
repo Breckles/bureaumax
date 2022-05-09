@@ -137,7 +137,7 @@ const renderProducts = (products) => {
     const templateEl = document.createElement('template');
     templateEl.innerHTML = listItem;
 
-    if (user) {
+    if (user && user.role === 'M') {
       const addToCartButton = document.createElement('button');
       addToCartButton.type = 'button';
       addToCartButton.innerHTML = 'Ajouter au panier';

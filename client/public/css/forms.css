@@ -25,13 +25,10 @@ form input:invalid {
   border-color: var(--color-error)
 }
 
-form input[type=date],
-form input[type=number] {
+/* form input[type=date],
+form input[type=number],
+form input[type=file] {
   border-color: var(--color-text-primary);
-  width: unset;
-}
-
-/* form input[type=number] {
   width: unset;
 } */
 

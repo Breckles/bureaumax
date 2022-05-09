@@ -12,8 +12,6 @@ class ProductModal {
     productModalTemplate.innerHTML = productModalHTML;
     const productModal = productModalTemplate.content.firstChild;
 
-    console.log(product);
-
     const productModalHeaderHTML = product
       ? `<h3>Modifier le produit N<sup>o</sup> ${product.id}</h3>\
     `
@@ -40,14 +38,14 @@ class ProductModal {
   <div class="formInput">\
   <label for="formProductPrice">Prix</label>\
   <input id="formProductPrice" name="formProductPrice" type="number" min="0" step="0.01" value="${
-    product ? product.price : ''
-  }" placeholder="${product ? false : 0}" required>\
+    product?.price || ''
+  }" placeholder="${product ? '' : 0}" required>\
   </div>\
   <div class="formInput">\
   <label for="formProductDiscountPrice">Prix d'aubaine (laissez a 0 si pas d'aubaines)</label>\
   <input id="formProductDiscountPrice" name="formProductDiscountPrice" type="number" min="0" step="0.01" value="${
-    product ? product.discountPrice : 0
-  }">\
+    product?.discountPrice || ''
+  }" placeholder="0">\
   </div>\
   </div>\
   <div class="formInput">\
@@ -71,10 +69,6 @@ class ProductModal {
     const contentTemplate = document.createElement('template');
     contentTemplate.innerHTML = productModalHeaderHTML + productModalFormHTML;
     productModal.append(contentTemplate.content);
-
-    console.log(productModalHeaderHTML + productModalFormHTML);
-
-    // document.body.append(productModalTemplate.content);
 
     this.content = productModalTemplate.content;
   }

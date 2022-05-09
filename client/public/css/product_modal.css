@@ -27,10 +27,12 @@
 
 #productModal form #formPrices {
   display: flex;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
-#productModal form #formPrices>* {
-  /* flex: 1; */
+#productModal form #formPrices input {
+  max-width: 7em;
 }
 
 #productModal form .formInput {

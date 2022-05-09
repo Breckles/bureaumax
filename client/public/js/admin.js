@@ -56,7 +56,6 @@ const openProductModal = (product = null) => {
 
   document.body.append(productModal.content);
   const modalMode = product ? 'update' : 'create';
-  console.log(modalMode);
 
   document
     .getElementById('productModal')
