@@ -9,7 +9,6 @@
   <link rel="icon" type="image/x-icon" href="../public/icones/logo_small.png">
   <link rel="stylesheet" href="../public/css/main.css">
   <link rel="stylesheet" href="../public/css/admin_page.css">
-  <!-- <script src="../public/js/main.js" type="module"></script> -->
   <script src="../public/js/admin.js" type="module"></script>
 </head>
 

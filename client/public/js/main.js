@@ -1,4 +1,5 @@
 import Cart from './models/cart.class.js';
+import Toast from './toast/toast.js';
 import { renderCartModal } from './cart_modal/cart_modal.js';
 import { getProducts, getUser } from './db.js';
 
@@ -105,6 +106,7 @@ window.closeCartModal = closeCartModal;
 
 const addToCartHandler = (product) => {
   cart.addToCart(product);
+  Toast.display('Produit ajouté au panier', 1500);
   document.getElementById('cartIconBadge').innerHTML = cart.numItems;
 };
 window.addToCartHandler = addToCartHandler;

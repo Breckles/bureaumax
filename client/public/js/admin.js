@@ -1,4 +1,5 @@
 import { getProducts } from './db.js';
+import Toast from './toast/toast.js';
 import ProductModal from './product_modal/product_modal.js';
 import AdminProductsTable from './admin_manage_products/admin_products_table.js';
 
@@ -68,7 +69,6 @@ const closeProductModal = () => {
   const modal = document.getElementById('productModal');
   document.body.removeChild(modal);
 };
-// window.closeProductModal = closeProductModal;
 
 const deleteProducts = async (ids) => {
   const userConfirmed = window.confirm(
@@ -76,7 +76,6 @@ const deleteProducts = async (ids) => {
       ids.length > 1 ? 'ces articles' : 'cet article'
     }?`
   );
-  console.log(ids);
   if (userConfirmed) {
     const body = new FormData();
     body.append('ids', JSON.stringify(ids));
@@ -91,7 +90,6 @@ const deleteProducts = async (ids) => {
       );
 
       if (response.ok) {
-        console.log('success!');
         onProductsDeleted(ids);
       }
     } catch (error) {
@@ -104,12 +102,7 @@ window.deleteProducts = deleteProducts;
 const renderProductsTable = () => {
   const container = document.getElementById('adminProductsTableContainer');
   const productsTable = new AdminProductsTable(products, rootURL);
-  console.log('in renderProductsTable, products: %o', products);
   container.replaceChildren(productsTable.content);
-};
-
-const removeProductsTable = () => {
-  // document.getElementById('adminProductsTableContainer').replaceChildren();
 };
 
 const onProductUpdated = (updatedProduct) => {
@@ -120,15 +113,18 @@ const onProductUpdated = (updatedProduct) => {
 
   if (updatedProductIndex === -1) {
     products.push(updatedProduct);
+    Toast.display('Produit creé avec succes');
   } else {
     products[updatedProductIndex] = updatedProduct;
+    Toast.display('Produit modifié avec succes');
   }
   refreshTable();
 };
 
 const onProductsDeleted = (ids) => {
   products = products.filter((product) => !ids.includes(product.id));
-  console.log(products);
+  const msg = ids.length === 1 ? 'Produit supprimé' : 'Produits supprimés';
+  Toast.display(msg);
   refreshTable();
 };
 
@@ -163,6 +159,5 @@ const onSubmitHandler = async (mode, event) => {
 };
 
 const refreshTable = (products) => {
-  removeProductsTable();
   renderProductsTable(products);
 };
