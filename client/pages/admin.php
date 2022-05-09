@@ -18,7 +18,6 @@
   define('ABSPATH', dirname(__DIR__, 2));
   require_once(ABSPATH . '/serveur/models/user.class.php');
   $DOMAINPATH = 'http://localhost:8080/sym_bureaumax_partie_1';
-  // $DOMAINPATH = 'http://192.168.2.16:8080/sym_bureaumax_partie_1';
   session_start();
 
   if (!isset($_SESSION['usager']) || $_SESSION['usager']->role === 'M') {
