@@ -61,7 +61,7 @@ form .radioGroup li {
   padding: 5px 0;
 }
 
-form .radioGroup input {
+form .radioGroup li input {
   width: unset;
 }
 

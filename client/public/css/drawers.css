@@ -149,3 +149,13 @@
   display: block;
   padding: 30px 25px;
 }
+
+@media screen and (min-size: 400px) {
+  #authDrawer form input {
+    width: unset;
+  }
+
+  .radioGroup input {
+    width: unset;
+  }
+}

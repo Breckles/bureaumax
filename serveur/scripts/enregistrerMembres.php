@@ -25,11 +25,20 @@ $stmt->bind_param("ss", $courriel, $pass);
 $stmt->execute();
 $tab['msg'] = "Membre bien enregistré";
 
-$user = new User($idm, $prenom, $nom, $courriel, $dob, $gender, 'M');
+// $user = new User($idm, $prenom, $nom, $courriel, $dob, $gender, 'M');
+
+$user = (object) array(
+  "idm" => $idm,
+  "prenom" => $prenom,
+  "nom" => $nom,
+  "courriel" => $courriel,
+  "dob" => $dob,
+  "gender" => $gender,
+  "role" => 'M',
+);
+
 $_SESSION['usager'] = $user;
 
 mysqli_close($connexion);
-
-// $_SESSION['usager'] = 'M';
-header("Location: ../../client/pages/membre.php");
+header("Location: ../../index.php");
 exit;

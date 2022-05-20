@@ -12,7 +12,10 @@
     include(ABSPATH . '/serveur/includes/forms/registration_form.inc.php');
   } else {
     $user = $_SESSION['usager'];
-    echo "<h2>$user->prenom $user->nom</h2>";
+    $prenom = $user->prenom;
+    $nom = $user->nom;
+
+    echo "<h2>$prenom, $nom</h2>";
     echo "<a href=$DOMAINPATH/client/pages/membre.php>Profile</a>";
     echo "<a href=$DOMAINPATH/serveur/scripts/deconnecter.php>Deconnexion</a>";
   }
