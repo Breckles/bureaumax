@@ -19,10 +19,13 @@
 
   <?php
   define('ABSPATH', __DIR__);
-  $DOMAINPATH = 'http://localhost:8080/sym_bureaumax_partie_1';
-  require_once(ABSPATH . '/serveur/models/user.class.php');
-  require_once(ABSPATH . '/serveur/models/product.class.php');
-  require_once(ABSPATH . '/serveur/scripts/products.php');
+  $DOMAINPATH = 'http://localhost/bureaumax';
+  // require_once(ABSPATH . '/serveur/models/user.class.php');
+  // require_once(ABSPATH . '/serveur/models/product.class.php');
+  // require_once(ABSPATH . '/serveur/scripts/products.php');
+  require_once('serveur/models/user.class.php');
+  require_once('serveur/models/product.class.php');
+  require_once('serveur/scripts/products.php');
 
   session_start();
   include('serveur/includes/drawers/section_drawer.inc.php');
@@ -33,7 +36,7 @@
   ?>
 
   <div class="bannerImageContainer">
-    <img class="bannerImage" src="http://localhost:8080/sym_bureaumax_partie_1/client/public/images/office_highlighters_large.jpg" alt="Un bureau avec des note d'entretien et des surligneurs dessus.">
+    <img class="bannerImage" src="http://localhost/bureaumax/client/public/images/office_highlighters_large.jpg" alt="Un bureau avec des note d'entretien et des surligneurs dessus.">
   </div>
 
   <?php

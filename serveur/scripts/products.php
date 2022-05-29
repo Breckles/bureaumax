@@ -3,7 +3,6 @@ require_once(ABSPATH . "/serveur/includes/configbd.inc.php");
 require_once(ABSPATH . "/serveur/models/product.class.php");
 
 $query = "SELECT * FROM products";
-
 $stmt = $connexion->prepare($query);
 $stmt->execute();
 $result = $stmt->get_result();
